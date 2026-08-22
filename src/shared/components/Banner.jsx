@@ -91,7 +91,7 @@ useEffect(() => {
         }}
       >
         <img
-          src="/images/home_banner.jpg"
+          src="/images/home_banner.webp"
           alt="Portfolio Banner"
           style={{
             display: "block",
@@ -131,7 +131,7 @@ useEffect(() => {
           height: "360px",
 
           backgroundImage:
-            "url('/images/ukiyo-waves.png')",
+            "url('/images/ukiyo-waves.webp')",
 
           backgroundRepeat: "repeat-x",
 
