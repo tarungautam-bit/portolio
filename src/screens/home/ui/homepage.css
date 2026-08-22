@@ -1,0 +1,1779 @@
+/* =========================================
+   ROOT
+========================================= */
+
+.home-page {
+  width: 100%;
+  overflow: hidden;
+
+  background: #f7f1e8;
+
+  color: #174b43;
+}
+
+
+/* =========================================
+   COMMON
+========================================= */
+
+.section-eyebrow {
+  display: block;
+
+  margin-bottom: 18px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  color: #c6a96b;
+}
+
+
+.section-line {
+  width: 80px;
+  height: 2px;
+
+  margin: 25px 0 30px;
+
+  background: #c6a96b;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero-section {
+  position: relative;
+
+  width: 100%;
+
+  margin: 0 auto;
+
+  padding:
+    35px 0
+    80px;
+
+  text-align: center;
+
+  overflow: hidden;
+
+  background: #f7f1e8;
+}
+
+
+.hero-eyebrow {
+  position: relative;
+
+  z-index: 2;
+
+  margin-bottom: 28px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  color: #73706a;
+}
+
+
+.hero-title {
+  position: relative;
+
+  z-index: 2;
+
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(55px, 7vw, 100px);
+
+  font-weight: 500;
+
+  line-height: 0.95;
+
+  color: #174b43;
+}
+
+
+.hero-description {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(780px, 90%);
+
+  margin: 35px auto 0;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: clamp(16px, 1.5vw, 20px);
+
+  line-height: 1.8;
+
+  color: #575750;
+}
+
+
+.hero-artwork {
+  position: relative;
+
+  z-index: 2;
+
+  width: 94%;
+
+  margin: 100px auto 0;
+
+  padding: 10px;
+
+  background: #fffdf7;
+
+  box-shadow:
+    0 10px 40px rgba(40, 30, 15, 0.08);
+}
+
+
+.hero-artwork img {
+  width: 100%;
+
+  height: auto;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================================
+   HERO WAVES
+========================================= */
+
+.hero-wave {
+  position: absolute;
+
+  z-index: 1;
+
+  width: 300px;
+
+  height: auto;
+
+  max-width: none;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  will-change: transform;
+}
+
+
+.hero-wave-left {
+  left: -70px;
+
+  top: 90px;
+
+  transform-origin: center center;
+}
+
+
+.hero-wave-right {
+  right: -70px;
+
+  top: 90px;
+
+  transform-origin: center center;
+}
+
+
+/* =========================================
+   ARTISAN
+========================================= */
+
+.artisan-section {
+  position: relative;
+
+  width: min(1440px, 100%);
+
+  margin: 0 auto;
+
+  padding:
+    140px 7vw;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(0, 1.1fr);
+
+  gap: 80px;
+
+  box-sizing: border-box;
+
+  background: transparent;
+}
+
+
+.artisan-content {
+  padding-top: 50px;
+}
+
+
+.section-number {
+  display: block;
+
+  margin-bottom: 15px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+
+  color: #c6a96b;
+}
+
+
+.artisan-content h2 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(42px, 5vw, 70px);
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  color: #f4ead2;
+}
+
+
+.artisan-content p {
+  max-width: 650px;
+
+  margin: 0 0 25px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color: rgba(244, 234, 210, 0.78);
+}
+
+
+.outline-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 55px;
+
+  margin-top: 20px;
+
+  padding: 0 30px;
+
+  border: 1px solid #c6a96b;
+
+  color: #f4ead2;
+
+  text-decoration: none;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.5px;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+.outline-button:hover {
+  background: #c6a96b;
+
+  border-color: #c6a96b;
+
+  color: #123b67;
+}
+
+
+/* =========================================
+   ARTISAN GALLERY
+========================================= */
+
+.artisan-gallery {
+  position: relative;
+
+  min-height: 650px;
+}
+
+
+.gallery-image {
+  position: absolute;
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(244, 234, 210, 0.16);
+}
+
+
+.gallery-image img {
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+.gallery-image-large {
+  top: 0;
+
+  right: 0;
+
+  width: 78%;
+
+  height: 350px;
+}
+
+
+.gallery-image-small {
+  left: 0;
+
+  bottom: 70px;
+
+  width: 45%;
+
+  height: 250px;
+}
+
+
+.gallery-image-card {
+  right: 12%;
+
+  bottom: 0;
+
+  width: 30%;
+
+  height: 270px;
+
+  background: #f4ead2;
+
+  border: 1px solid #c6a96b;
+}
+
+
+.gallery-image-card img {
+  height: 270px;
+}
+
+
+.gallery-card-info {
+  padding: 10px 14px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  color: #174b43;
+}
+
+
+.gallery-card-info span {
+  font-size: 10px;
+}
+
+
+.gallery-card-info strong {
+  font-size: 8px;
+
+  letter-spacing: 1px;
+}
+
+
+.gallery-card-info small {
+  font-size: 10px;
+}
+
+
+/* =========================================
+   PHILOSOPHY
+========================================= */
+
+.philosophy-section {
+  width: 100%;
+
+  padding:
+    180px 20px;
+
+  text-align: center;
+
+  background: transparent;
+}
+
+
+.philosophy-inner {
+  width: min(850px, 90vw);
+
+  margin: 0 auto;
+}
+
+
+.philosophy-inner h2 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(40px, 6vw, 78px);
+
+  font-weight: 500;
+
+  line-height: 1.05;
+
+  color: #f4ead2;
+}
+
+
+.philosophy-inner p {
+  width: min(600px, 100%);
+
+  margin: 35px auto 0;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 17px;
+
+  line-height: 1.8;
+
+  color: rgba(244, 234, 210, 0.72);
+}
+
+
+/* =========================================
+   ARCHIVE
+========================================= */
+
+.archive-section {
+  width: min(1440px, 100%);
+
+  margin: 0 auto;
+
+  padding:
+    150px 7vw;
+
+  box-sizing: border-box;
+
+  background: transparent;
+}
+
+
+.archive-header {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  margin-bottom: 90px;
+}
+
+
+.archive-header h2 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(48px, 6vw, 80px);
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  color: #f4ead2;
+}
+
+
+.view-all {
+  color: #c6a96b;
+
+  text-decoration: none;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.5px;
+
+  transition:
+    color 0.3s ease;
+}
+
+
+.view-all:hover {
+  color: #f4ead2;
+}
+
+
+/* =========================================
+   PROJECT GRID
+========================================= */
+
+.archive-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  column-gap: 70px;
+
+  row-gap: 120px;
+}
+
+
+.project {
+  min-width: 0;
+}
+
+
+.project-offset {
+  padding-top: 120px;
+}
+
+
+.project-image {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  background: #173f5e;
+
+  border: 1px solid rgba(244, 234, 210, 0.14);
+}
+
+
+.project-image img {
+  width: 100%;
+
+  height: auto;
+
+  min-height: 350px;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+.project-number {
+  position: absolute;
+
+  top: 20px;
+
+  left: 20px;
+
+  width: 48px;
+
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #c6a96b;
+
+  color: #123b67;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+
+.project-info {
+  padding-top: 25px;
+}
+
+
+.project-info h3 {
+  margin: 0 0 8px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(27px, 3vw, 40px);
+
+  font-weight: 500;
+
+  color: #f4ead2;
+}
+
+
+.project-info p {
+  margin: 0 0 12px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 18px;
+
+  color: rgba(244, 234, 210, 0.72);
+}
+
+
+.project-info span {
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.5px;
+
+  color: #c6a96b;
+}
+
+
+/* =========================================
+   COMMISSION
+========================================= */
+
+.commission-section {
+  width: 100%;
+
+  min-height: 600px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    100px 20px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+
+  /*
+    Keep commission dark and slightly
+    separated from the lighter lower ocean.
+  */
+
+  background: #092f50 !important;
+
+  color: #f7f1e8;
+
+  z-index: 5;
+}
+
+
+.commission-inner {
+  width: min(800px, 90vw);
+}
+
+
+.commission-section .section-eyebrow {
+  color: #c6a96b;
+}
+
+
+.commission-section h2 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(50px, 7vw, 95px);
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  color: #f7f1e8;
+}
+
+
+.commission-section p {
+  width: min(600px, 100%);
+
+  margin: 35px auto 45px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 17px;
+
+  line-height: 1.8;
+
+  color: rgba(247, 241, 232, 0.75);
+}
+
+
+.commission-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 55px;
+
+  padding: 0 30px;
+
+  border: 1px solid #c6a96b;
+
+  color: #f7f1e8;
+
+  text-decoration: none;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.5px;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+
+.commission-button:hover {
+  background: #c6a96b;
+
+  color: #092f50;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .hero-section {
+    padding-bottom: 90px;
+  }
+
+
+  .artisan-section {
+    padding:
+      100px 6vw;
+
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+  }
+
+
+  .artisan-content {
+    padding-top: 0;
+  }
+
+
+  .artisan-gallery {
+    min-height: 600px;
+  }
+
+
+  .archive-section {
+    padding:
+      100px 6vw;
+  }
+
+
+  .archive-header {
+    margin-bottom: 60px;
+  }
+
+
+  .archive-grid {
+    column-gap: 35px;
+
+    row-gap: 80px;
+  }
+
+
+  .project-offset {
+    padding-top: 70px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .hero-section {
+    width: 100%;
+
+    padding:
+      40px 20px
+      90px;
+
+    box-sizing: border-box;
+  }
+
+
+  .hero-eyebrow {
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+  }
+
+
+  .hero-title {
+    font-size: clamp(48px, 15vw, 70px);
+  }
+
+
+  .hero-description {
+    width: 100%;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+
+  .hero-artwork {
+    width: 100%;
+
+    margin-top: 60px;
+
+    padding: 6px;
+  }
+
+
+  /* ARTISAN */
+
+  .artisan-section {
+    padding:
+      80px 20px;
+
+    display: block;
+  }
+
+
+  .artisan-content h2 {
+    font-size: 48px;
+  }
+
+
+  .artisan-content p {
+    font-size: 15px;
+
+    line-height: 1.75;
+  }
+
+
+  .artisan-gallery {
+    min-height: 500px;
+
+    margin-top: 70px;
+  }
+
+
+  .gallery-image-large {
+    width: 82%;
+
+    height: 260px;
+  }
+
+
+  .gallery-image-small {
+    width: 48%;
+
+    height: 190px;
+
+    bottom: 30px;
+  }
+
+
+  .gallery-image-card {
+    right: 0;
+
+    width: 42%;
+
+    height: 210px;
+  }
+
+
+  .gallery-image-card img {
+    height: 150px;
+  }
+
+
+  /* PHILOSOPHY */
+
+  .philosophy-section {
+    padding:
+      110px 20px;
+  }
+
+
+  .philosophy-inner h2 {
+    font-size: 43px;
+  }
+
+
+  .philosophy-inner h2 br {
+    display: none;
+  }
+
+
+  .philosophy-inner p {
+    font-size: 15px;
+  }
+
+
+  /* ARCHIVE */
+
+  .archive-section {
+    padding:
+      90px 20px;
+  }
+
+
+  .archive-header {
+    display: block;
+
+    margin-bottom: 50px;
+  }
+
+
+  .archive-header h2 {
+    font-size: 48px;
+  }
+
+
+  .view-all {
+    display: inline-block;
+
+    margin-top: 25px;
+  }
+
+
+  .archive-grid {
+    grid-template-columns: 1fr;
+
+    row-gap: 70px;
+  }
+
+
+  .project-offset {
+    padding-top: 0;
+  }
+
+
+  .project-image img {
+    min-height: 0;
+  }
+
+
+  .project-info h3 {
+    font-size: 30px;
+  }
+
+
+  /* COMMISSION */
+
+  .commission-section {
+    min-height: 500px;
+
+    padding:
+      90px 20px;
+  }
+
+
+  .commission-section h2 {
+    font-size: 52px;
+  }
+
+
+  .commission-section p {
+    font-size: 15px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .hero-section {
+    padding-left: 15px;
+
+    padding-right: 15px;
+  }
+
+
+  .hero-title {
+    font-size: 44px;
+  }
+
+
+  .artisan-section {
+    padding-left: 15px;
+
+    padding-right: 15px;
+  }
+
+
+  .artisan-content h2 {
+    font-size: 42px;
+  }
+
+
+  .artisan-gallery {
+    min-height: 400px;
+  }
+
+
+  .gallery-image-large {
+    height: 210px;
+  }
+
+
+  .gallery-image-small {
+    height: 150px;
+  }
+
+
+  .gallery-image-card {
+    height: 170px;
+  }
+
+
+  .gallery-image-card img {
+    height: 120px;
+  }
+
+
+  .archive-section {
+    padding-left: 15px;
+
+    padding-right: 15px;
+  }
+
+
+  .archive-header h2 {
+    font-size: 42px;
+  }
+
+
+  .commission-section h2 {
+    font-size: 45px;
+  }
+
+}
+
+
+/* =========================================================
+   HERO WAVES
+========================================================= */
+
+.hero-section {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  padding-top: 35px;
+}
+
+
+.hero-wave {
+  position: absolute;
+
+  z-index: 1;
+
+  width: 300px;
+
+  height: auto;
+
+  max-width: none;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  will-change: transform;
+}
+
+
+.hero-wave-left {
+  left: -70px;
+
+  top: 90px;
+
+  transform-origin: center center;
+}
+
+
+.hero-wave-right {
+  right: -70px;
+
+  top: 90px;
+
+  transform-origin: center center;
+}
+
+
+.hero-eyebrow,
+.hero-title,
+.hero-description,
+.hero-section > .banner {
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   HERO WAVES - TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .hero-wave {
+    width: 240px;
+  }
+
+
+  .hero-wave-left {
+    left: -80px;
+
+    top: 100px;
+  }
+
+
+  .hero-wave-right {
+    right: -80px;
+
+    top: 100px;
+  }
+
+}
+
+
+/* =========================================================
+   HERO WAVES - MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .hero-section {
+    padding-top: 25px;
+  }
+
+
+  .hero-wave {
+    width: 180px;
+
+    opacity: 0.9;
+  }
+
+
+  .hero-wave-left {
+    left: -75px;
+
+    top: 95px;
+  }
+
+
+  .hero-wave-right {
+    right: -75px;
+
+    top: 95px;
+  }
+
+}
+
+
+/* =========================================================
+   HERO WAVES - SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .hero-wave {
+    width: 130px;
+
+    opacity: 0.75;
+  }
+
+
+  .hero-wave-left {
+    left: -55px;
+
+    top: 110px;
+  }
+
+
+  .hero-wave-right {
+    right: -55px;
+
+    top: 110px;
+  }
+
+}
+
+
+/* =========================================================
+   OCEAN
+   REVERSED GRADIENT
+========================================================= */
+
+.ocean-section {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  margin-top: 0;
+
+  padding-top: 0;
+
+  color: #f4ead2;
+
+  /*
+    DARK AT THE TOP
+
+    The wave above is dark blue.
+    Therefore the section starts dark too.
+
+    Then the water gradually becomes
+    lighter / atmospheric as we move down.
+  */
+
+  background:
+    linear-gradient(
+      to bottom,
+
+      #000d1b 0px,
+
+      #153f68 100px,
+
+      #1d4b70 220px,
+
+      #285d78 350px,
+
+      #3e6e82 500px,
+
+      #527f90 680px,
+
+      #6d929e 900px,
+
+      #86a5ae 1150px,
+
+      #9aafb5 1450px,
+
+      #a9b8bb 1800px,
+
+      #b5c0c0 2200px,
+
+      #bec5c3 100%
+    ) !important;
+}
+
+
+/* =========================================================
+   TOP WAVE MIST
+========================================================= */
+
+.ocean-section::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 320px;
+
+  pointer-events: none;
+
+  z-index: 1;
+
+  /*
+    Dark transparent atmospheric mist.
+    No white block.
+  */
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+
+      rgba(210, 226, 229, 0.18) 0%,
+
+      rgba(190, 213, 219, 0.10) 30%,
+
+      rgba(160, 195, 205, 0.05) 55%,
+
+      transparent 82%
+    )  !important;
+
+  filter: blur(22px);
+
+  opacity: 0.7;
+}
+
+
+
+
+/* =========================================================
+   UNDERWATER LIGHT
+========================================================= */
+
+.ocean-section::after {
+  content: "";
+
+  position: absolute;
+
+  top: 200px;
+
+  left: 0;
+
+  width: 100%;
+
+  height: calc(100% - 200px);
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  opacity: 0.07;
+
+  background:
+    repeating-linear-gradient(
+      115deg,
+
+      transparent 0px,
+
+      transparent 100px,
+
+      rgba(210, 235, 238, 0.13) 130px,
+
+      transparent 180px
+    );
+
+  animation:
+    underwaterLight 12s linear infinite;
+}
+
+
+@keyframes underwaterLight {
+
+  0% {
+    transform: translateX(-80px);
+  }
+
+  50% {
+    transform: translateX(80px);
+  }
+
+  100% {
+    transform: translateX(-80px);
+  }
+
+}
+
+
+/* =========================================================
+   OCEAN CONTENT
+========================================================= */
+
+.ocean-section > section {
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   FISH
+========================================================= */
+
+.ocean-fish-container {
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  overflow: hidden;
+
+  z-index: 4;
+
+  pointer-events: none;
+}
+
+
+.ocean-fish {
+  position: absolute;
+
+  width: 100px;
+
+  height: auto;
+
+  max-width: none;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  will-change: transform;
+
+  filter:
+    drop-shadow(
+      0 5px 8px rgba(0, 0, 0, 0.18)
+    );
+}
+
+
+/* =========================================================
+   ARTISAN
+========================================================= */
+
+.ocean-section .artisan-section {
+  background: transparent;
+}
+
+
+.ocean-section .artisan-content h2 {
+  color: #f4ead2;
+}
+
+
+.ocean-section .artisan-content p {
+  color: rgba(244, 234, 210, 0.78);
+}
+
+
+.ocean-section .section-number {
+  color: #c6a96b;
+}
+
+
+/* =========================================================
+   PHILOSOPHY
+========================================================= */
+
+.ocean-section .philosophy-section {
+  background: transparent;
+}
+
+
+.ocean-section .philosophy-inner h2 {
+  color: #f4ead2;
+}
+
+
+.ocean-section .philosophy-inner p {
+  color: rgba(244, 234, 210, 0.72);
+}
+
+
+/* =========================================================
+   ARCHIVE
+========================================================= */
+
+.ocean-section .archive-section {
+  background: transparent;
+}
+
+
+.ocean-section .archive-header h2 {
+  color: #f4ead2;
+}
+
+
+.ocean-section .project-info h3 {
+  color: #f4ead2;
+}
+
+
+.ocean-section .project-info p {
+  color: rgba(244, 234, 210, 0.72);
+}
+
+
+.ocean-section .project-info span {
+  color: #c6a96b;
+}
+
+
+/* =========================================================
+   PROJECT IMAGE
+========================================================= */
+
+.ocean-section .project-image {
+  background: #173f5e;
+
+  border-color:
+    rgba(244, 234, 210, 0.16);
+}
+
+
+/* =========================================================
+   PROJECT NUMBER
+========================================================= */
+
+.ocean-section .project-number {
+  background: #c6a96b;
+
+  color: #123b67;
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.ocean-section .gallery-image {
+  background:
+    rgba(255, 255, 255, 0.06);
+
+  border-color:
+    rgba(244, 234, 210, 0.15);
+}
+
+
+/* =========================================================
+   GALLERY CARD
+========================================================= */
+
+.ocean-section .gallery-image-card {
+  background: #f4ead2;
+
+  border-color: #c6a96b;
+}
+
+
+.ocean-section .gallery-card-info {
+  color: #174b43;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.ocean-section .outline-button {
+  border-color: #c6a96b;
+
+  color: #f4ead2;
+}
+
+
+.ocean-section .outline-button:hover {
+  background: #c6a96b;
+
+  color: #123b67;
+}
+
+
+/* =========================================================
+   VIEW ALL
+========================================================= */
+
+.ocean-section .view-all {
+  color: #c6a96b;
+}
+
+
+.ocean-section .view-all:hover {
+  color: #f4ead2;
+}
+
+
+/* =========================================================
+   COMMISSION
+========================================================= */
+
+.ocean-section .commission-section {
+  background: #092f50 !important;
+
+  color: #f7f1e8;
+
+  z-index: 5;
+}
+
+
+.ocean-section .commission-section h2 {
+  color: #f7f1e8;
+}
+
+
+.ocean-section .commission-section p {
+  color:
+    rgba(247, 241, 232, 0.75);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .ocean-fish {
+    width: 45px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .ocean-fish {
+    width: 32px;
+  }
+
+
+  .ocean-section::before {
+    height: 260px;
+
+    filter: blur(18px);
+
+    opacity: 0.55;
+  }
+
+
+  .ocean-section::after {
+    opacity: 0.06;
+  }
+
+}
+
+
+/* =========================================================
+   BANNER WAVE
+========================================================= */
+
+.banner-wave {
+  background-repeat: repeat-x;
+
+  background-position: 0 0;
+
+  background-size: auto 100%;
+
+  will-change: background-position;
+  
+}

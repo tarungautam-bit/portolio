@@ -1,0 +1,1618 @@
+/* =========================================================
+   ABOUT PAGE
+========================================================= */
+
+.about-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  background: #f3ecdf;
+  color: #182a2b;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.about-hero {
+  position: relative;
+
+  width: 100%;
+  min-height: 720px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 100px 7vw 120px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.about-hero-content {
+  position: relative;
+  z-index: 3;
+
+  width: min(760px, 70%);
+
+  margin-left: 170px;
+
+  text-align: center;
+}
+
+
+.about-kicker {
+  display: block;
+
+  margin-bottom: 18px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.28em;
+
+  color: #8f2727;
+}
+
+
+.about-title {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(80px, 12vw, 170px);
+
+  line-height: 0.82;
+
+  font-weight: 500;
+
+  letter-spacing: -0.06em;
+
+  color: #172a2b;
+}
+
+
+.about-title span {
+  display: block;
+
+  margin-left: 100px;
+
+  font-style: italic;
+
+  color: #8f2727;
+}
+
+
+.about-intro {
+  max-width: 680px;
+
+  margin: 55px auto 0;
+
+  font-size: clamp(17px, 1.5vw, 22px);
+
+  line-height: 1.8;
+
+  color: #344647;
+}
+
+
+.about-intro-small {
+  max-width: 560px;
+
+  margin: 22px auto 0;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+  color: #6c7774;
+}
+
+
+/* =========================================================
+   JAPANESE MARK
+========================================================= */
+
+.about-japanese-mark {
+  position: absolute;
+
+  top: -40px;
+  right: -20px;
+
+  width: 95px;
+  height: 95px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(143, 39, 39, 0.35);
+
+  border-radius: 50%;
+
+  font-family: serif;
+
+  font-size: 48px;
+
+  color: #8f2727;
+
+  transform: rotate(8deg);
+}
+
+
+/* =========================================================
+   INK LINE
+========================================================= */
+
+.about-ink-line {
+  width: 180px;
+  height: 3px;
+
+  margin: 35px auto 0;
+
+  background: #8f2727;
+
+  transform-origin: left center;
+}
+
+
+/* =========================================================
+   FIRE ART
+========================================================= */
+
+.about-art-frame {
+  position: absolute;
+
+  left: 0;
+  top: 80px;
+
+  width: clamp(220px, 25vw, 360px);
+  height: 540px;
+
+  z-index: 4;
+
+  overflow: hidden;
+
+  background: #172d3a;
+
+  border: 10px solid #f7f1e7;
+
+  box-shadow:
+    0 25px 60px rgba(20, 35, 40, 0.18);
+}
+
+
+.about-fire-art {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top;
+  will-change: transform;
+}
+
+
+.about-art-frame::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5, 25, 35, 0.08),
+      transparent 45%,
+      rgba(5, 25, 35, 0.35)
+    );
+}
+
+
+.about-art-label {
+  position: absolute;
+
+  top: 20px;
+  left: 20px;
+
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+
+  color: #f7ead2;
+
+  font-family: serif;
+
+  font-size: 28px;
+
+  line-height: 1;
+}
+
+
+.about-art-label span {
+  margin-top: 6px;
+
+  font-family: sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 0.25em;
+}
+
+
+.about-art-caption {
+  position: absolute;
+
+  bottom: 20px;
+  left: 20px;
+
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+
+  color: #f7ead2;
+
+  font-family: serif;
+
+  font-size: 30px;
+}
+
+
+.about-art-caption span {
+  margin-top: 6px;
+
+  font-family: sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 0.2em;
+}
+
+
+/* =========================================================
+   COMMON SECTIONS
+========================================================= */
+
+.experience-section,
+.skills-section,
+.education-section,
+.certificates-section,
+.interests-section {
+  position: relative;
+
+  width: min(1250px, 90%);
+
+  margin: 0 auto;
+
+  padding: 130px 0;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.about-section-heading {
+  max-width: 650px;
+
+  margin-bottom: 80px;
+}
+
+
+.about-section-heading > span {
+  display: block;
+
+  margin-bottom: 18px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.25em;
+
+  color: #8f2727;
+}
+
+
+.about-section-heading h2 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(48px, 7vw, 88px);
+
+  font-weight: 500;
+
+  line-height: 0.95;
+
+  color: #172a2b;
+}
+
+
+.about-section-heading p {
+  max-width: 560px;
+
+  margin-top: 28px;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color: #64716f;
+}
+
+
+/* =========================================================
+   EXPERIENCE TIMELINE
+========================================================= */
+
+.experience-timeline {
+  position: relative;
+
+  width: 100%;
+
+  padding: 30px 0;
+}
+
+
+.experience-line {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: 50%;
+
+  width: 2px;
+
+  transform: translateX(-50%);
+
+  background: rgba(23, 42, 43, 0.14);
+}
+
+
+.experience-line-progress {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: #8f2727;
+
+  transform-origin: top center;
+
+  transform: scaleY(0);
+}
+
+
+.experience-item {
+  position: relative;
+
+  width: 50%;
+
+  box-sizing: border-box;
+
+  padding: 0 60px 100px;
+}
+
+
+.experience-item:nth-child(odd) {
+  margin-left: 0;
+
+  padding-right: 80px;
+
+  text-align: right;
+}
+
+
+.experience-item:nth-child(even) {
+  margin-left: 50%;
+
+  padding-left: 80px;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   EXPERIENCE DOT
+========================================================= */
+
+.experience-dot {
+  position: absolute;
+
+  top: 22px;
+
+  width: 15px;
+  height: 15px;
+
+  z-index: 3;
+
+  border-radius: 50%;
+
+  background: #8f2727;
+
+  border: 4px solid #f3ecdf;
+
+  box-shadow:
+    0 0 0 1px #8f2727;
+}
+
+
+.experience-item:nth-child(odd) .experience-dot {
+  right: -8px;
+}
+
+
+.experience-item:nth-child(even) .experience-dot {
+  left: -8px;
+}
+
+
+/* =========================================================
+   EXPERIENCE CARD
+========================================================= */
+
+.experience-card {
+  position: relative;
+
+  padding: 35px;
+
+  background:
+    rgba(255, 255, 255, 0.42);
+
+  border:
+    1px solid rgba(23, 42, 43, 0.10);
+
+  box-shadow:
+    0 20px 45px rgba(20, 35, 40, 0.07);
+}
+
+
+.experience-date {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+
+  color: #8f2727;
+}
+
+
+.experience-type {
+  display: inline-block;
+
+  margin-bottom: 18px;
+
+  font-size: 9px;
+
+  letter-spacing: 0.2em;
+
+  color: #87908d;
+}
+
+
+.experience-card h3 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 32px;
+
+  font-weight: 500;
+
+  color: #172a2b;
+}
+
+
+.experience-card h4 {
+  margin: 8px 0 20px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  color: #8f2727;
+}
+
+
+.experience-card p {
+  margin: 0 0 15px;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+  color: #5e6a68;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills-section {
+  padding-top: 100px;
+}
+
+
+.skills-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 14px;
+}
+
+
+.skill-item {
+  min-height: 150px;
+
+  padding: 24px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid rgba(23, 42, 43, 0.10);
+
+  background:
+    rgba(255, 255, 255, 0.38);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+.skill-item:hover {
+  transform: translateY(-8px);
+
+  background:
+    rgba(255, 255, 255, 0.72);
+
+  border-color:
+    rgba(143, 39, 39, 0.35);
+}
+
+
+.skill-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #8f2727;
+}
+
+
+.skill-icon svg {
+  width: 38px;
+  height: 38px;
+
+  stroke-width: 1.5;
+}
+
+
+.skill-item > span {
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  color: #334645;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   EDUCATION
+========================================================= */
+
+.education-card {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 40px;
+
+  padding: 55px;
+
+  overflow: hidden;
+
+  background: #172d3a;
+
+  color: #f5eee2;
+}
+
+
+.education-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #d89b57;
+}
+
+
+.education-year {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(55px, 8vw, 100px);
+
+  color: #d89b57;
+
+  line-height: 1;
+}
+
+
+.education-content span {
+  font-size: 10px;
+
+  letter-spacing: 0.2em;
+
+  color: #d89b57;
+}
+
+
+.education-content h3 {
+  margin: 12px 0 8px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(30px, 4vw, 52px);
+
+  font-weight: 500;
+}
+
+
+.education-content p {
+  margin: 0 0 10px;
+
+  font-size: 16px;
+
+  color: rgba(245, 238, 226, 0.75);
+}
+
+
+.education-content strong {
+  font-size: 14px;
+}
+
+
+.education-kanji {
+  position: absolute;
+
+  right: 40px;
+  bottom: -35px;
+
+  font-family: serif;
+
+  font-size: 180px;
+
+  color:
+    rgba(255, 255, 255, 0.04);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   SMALL EDUCATION CARDS
+========================================================= */
+
+.education-small-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 15px;
+
+  margin-top: 15px;
+}
+
+
+.education-small-card {
+  padding: 35px;
+
+  border:
+    1px solid rgba(23, 42, 43, 0.10);
+
+  background:
+    rgba(255, 255, 255, 0.4);
+}
+
+
+.education-small-card > span {
+  color: #8f2727;
+
+  font-weight: 700;
+
+  font-size: 12px;
+}
+
+
+.education-small-card h3 {
+  margin: 12px 0 8px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 26px;
+}
+
+
+.education-small-card p {
+  margin: 0;
+
+  font-size: 13px;
+
+  color: #6d7775;
+}
+
+
+.education-small-card small {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #8f2727;
+}
+
+
+/* =========================================================
+   CERTIFICATIONS
+========================================================= */
+
+.certificates-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+
+.certificate-card {
+  min-height: 220px;
+
+  padding: 35px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-end;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid rgba(23, 42, 43, 0.11);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.55),
+      rgba(220, 214, 197, 0.35)
+    );
+}
+
+
+.certificate-card > svg {
+  margin-bottom: auto;
+
+  color: #8f2727;
+
+  stroke-width: 1.5;
+}
+
+
+.certificate-card > span {
+  margin-bottom: 12px;
+
+  font-size: 10px;
+
+  letter-spacing: 0.18em;
+
+  color: #8f2727;
+}
+
+
+.certificate-card h3 {
+  margin: 0 0 12px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 25px;
+
+  line-height: 1.2;
+
+  font-weight: 500;
+}
+
+
+.certificate-card strong {
+  font-size: 11px;
+
+  color: #697571;
+}
+
+
+/* =========================================================
+   INTERESTS
+========================================================= */
+
+.interests-section {
+  padding-bottom: 120px;
+}
+
+
+.interests-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  border-top:
+    1px solid rgba(23, 42, 43, 0.14);
+}
+
+
+.interest-item {
+  min-height: 110px;
+
+  padding: 30px 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  box-sizing: border-box;
+
+  border-bottom:
+    1px solid rgba(23, 42, 43, 0.14);
+}
+
+
+.interest-item svg {
+  flex-shrink: 0;
+
+  color: #8f2727;
+
+  stroke-width: 1.5;
+}
+
+
+.interest-item > span {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(24px, 3vw, 38px);
+}
+
+
+/* =========================================================
+   CLOSING
+========================================================= */
+
+.about-closing {
+  position: relative;
+
+  min-height: 420px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 80px 20px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  text-align: center;
+
+  background: #172d3a;
+
+  color: #f5eee2;
+}
+
+
+.about-closing-content {
+  position: relative;
+
+  z-index: 2;
+}
+
+
+.about-closing-kanji {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  font-family: serif;
+
+  font-size: 350px;
+
+  line-height: 1;
+
+  color:
+    rgba(255, 255, 255, 0.025);
+
+  user-select: none;
+
+  pointer-events: none;
+}
+
+
+.about-closing p {
+  position: relative;
+
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(35px, 5vw, 70px);
+
+  font-style: italic;
+
+  color: #f5eee2;
+}
+
+
+.about-closing span {
+  position: relative;
+
+  display: block;
+
+  margin-top: 25px;
+
+  font-size: 10px;
+
+  letter-spacing: 0.3em;
+
+  color: #d89b57;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .about-art-frame {
+    width: 220px;
+    height: 450px;
+  }
+
+
+  .about-hero-content {
+    margin-left: 130px;
+
+    width: 65%;
+  }
+
+
+  .skills-grid {
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+  /* HERO */
+
+  .about-hero {
+    min-height: auto;
+
+    display: block;
+
+    padding:
+      90px
+      25px
+      80px;
+  }
+
+
+  /* FIRE ART */
+
+  .about-art-frame {
+    position: relative;
+
+    top: auto;
+    left: auto;
+
+    width: 100%;
+    height: 300px;
+
+    margin:
+      0
+      auto
+      55px;
+  }
+
+
+  .about-hero-content {
+    width: 100%;
+
+    margin-left: 0;
+  }
+
+
+  .about-title span {
+    margin-left: 40px;
+  }
+
+
+  .about-japanese-mark {
+    top: -20px;
+    right: 0;
+
+    width: 70px;
+    height: 70px;
+
+    font-size: 35px;
+  }
+
+
+  /* EXPERIENCE */
+
+  .experience-line {
+    left: 12px;
+
+    transform: none;
+  }
+
+
+  .experience-item,
+  .experience-item:nth-child(odd),
+  .experience-item:nth-child(even) {
+
+    width: 100%;
+
+    margin-left: 0;
+
+    padding:
+      0
+      0
+      70px
+      45px;
+
+    text-align: left;
+  }
+
+
+  .experience-item:nth-child(odd) .experience-dot,
+  .experience-item:nth-child(even) .experience-dot {
+
+    left: 5px;
+    right: auto;
+  }
+
+
+  /* SKILLS */
+
+  .skills-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+
+  /* EDUCATION */
+
+  .education-card {
+    gap: 25px;
+  }
+
+
+  /* CERTIFICATES */
+
+  .certificates-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* INTERESTS */
+
+  .interests-list {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .experience-section,
+  .skills-section,
+  .education-section,
+  .certificates-section,
+  .interests-section {
+
+    width:
+      calc(100% - 40px);
+
+    padding:
+      90px 0;
+  }
+
+
+  /* HERO */
+
+  .about-hero {
+    padding:
+      80px
+      20px
+      70px;
+  }
+
+
+  .about-art-frame {
+    height: 260px;
+
+    border-width: 7px;
+  }
+
+
+  .about-title {
+    font-size: clamp(
+      65px,
+      18vw,
+      100px
+    );
+  }
+
+
+  .about-title span {
+    margin-left: 20px;
+  }
+
+
+  .about-japanese-mark {
+    width: 60px;
+    height: 60px;
+
+    font-size: 30px;
+  }
+
+
+  .about-intro {
+    margin-top: 40px;
+
+    font-size: 16px;
+
+    line-height: 1.75;
+  }
+
+
+  .about-intro-small {
+    font-size: 13px;
+  }
+
+
+  /* SECTION HEADINGS */
+
+  .about-section-heading {
+    margin-bottom: 55px;
+  }
+
+
+  .about-section-heading h2 {
+    font-size:
+      clamp(
+        45px,
+        13vw,
+        70px
+      );
+  }
+
+
+  /* EXPERIENCE */
+
+  .experience-card {
+    padding: 25px;
+  }
+
+
+  .experience-card h3 {
+    font-size: 27px;
+  }
+
+
+  .experience-card h4 {
+    font-size: 10px;
+  }
+
+
+  .experience-card p {
+    font-size: 13px;
+  }
+
+
+  .experience-date {
+    font-size: 8px;
+
+    letter-spacing: 0.15em;
+  }
+
+
+  /* SKILLS */
+
+  .skills-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 10px;
+  }
+
+
+  .skill-item {
+    min-height: 125px;
+
+    padding: 15px;
+  }
+
+
+  .skill-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+
+
+  .skill-item > span {
+    font-size: 9px;
+  }
+
+
+  /* EDUCATION */
+
+  .education-card {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 30px;
+  }
+
+
+  .education-icon {
+    position: absolute;
+
+    top: 25px;
+    right: 25px;
+  }
+
+
+  .education-year {
+    font-size: 60px;
+  }
+
+
+  .education-content h3 {
+    font-size: 32px;
+  }
+
+
+  .education-content p {
+    font-size: 14px;
+  }
+
+
+  .education-kanji {
+    right: -10px;
+    bottom: -20px;
+
+    font-size: 130px;
+  }
+
+
+  .education-small-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .education-small-card {
+    padding: 25px;
+  }
+
+
+  /* CERTIFICATES */
+
+  .certificate-card {
+    min-height: 190px;
+
+    padding: 25px;
+  }
+
+
+  .certificate-card h3 {
+    font-size: 22px;
+  }
+
+
+  /* INTERESTS */
+
+  .interest-item {
+    min-height: 90px;
+
+    padding: 22px 10px;
+  }
+
+
+  .interest-item > span {
+    font-size: 28px;
+  }
+
+
+  /* CLOSING */
+
+  .about-closing {
+    min-height: 350px;
+
+    padding:
+      60px
+      20px;
+  }
+
+
+  .about-closing-kanji {
+    font-size: 250px;
+  }
+
+
+  .about-closing p {
+    font-size: 38px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .about-hero {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+
+  .experience-section,
+  .skills-section,
+  .education-section,
+  .certificates-section,
+  .interests-section {
+
+    width:
+      calc(100% - 30px);
+  }
+
+
+  .skills-grid {
+    gap: 7px;
+  }
+
+
+  .skill-item {
+    min-height: 115px;
+
+    padding: 10px;
+  }
+
+
+  .skill-item > span {
+    font-size: 8px;
+  }
+
+
+  .experience-item,
+  .experience-item:nth-child(odd),
+  .experience-item:nth-child(even) {
+
+    padding-left: 35px;
+  }
+
+
+  .experience-card {
+    padding: 20px;
+  }
+
+
+  .experience-card h3 {
+    font-size: 24px;
+  }
+
+}
+
+/* =====================================================
+   GLOBAL FLAMES
+===================================================== */
+
+.about-page {
+  position: relative;
+  overflow: hidden;
+}
+
+.global-flames {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.floating-flame {
+  position: absolute;
+  width: 55px;
+  height: auto;
+  object-fit: contain;
+  opacity: 0;
+  user-select: none;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 0 12px rgba(190, 60, 20, 0.25));
+}
+
+
+/* LEFT SIDE */
+
+.flame-1 {
+  left: 3%;
+  top: 18%;
+  width: 45px;
+}
+
+.flame-2 {
+  left: 7%;
+  top: 58%;
+  width: 65px;
+}
+
+.flame-3 {
+  left: 2%;
+  top: 82%;
+  width: 40px;
+}
+
+
+/* RIGHT SIDE */
+
+.flame-4 {
+  right: 4%;
+  top: 30%;
+  width: 60px;
+}
+
+.flame-5 {
+  right: 8%;
+  top: 65%;
+  width: 42px;
+}
+
+.flame-6 {
+  right: 3%;
+  top: 88%;
+  width: 70px;
+}
+
+
+@media (max-width: 768px) {
+  .floating-flame {
+    width: 35px;
+  }
+
+  .flame-1 {
+    left: 2%;
+  }
+
+  .flame-2 {
+    left: 3%;
+  }
+
+  .flame-3 {
+    left: 1%;
+  }
+
+  .flame-4 {
+    right: 2%;
+  }
+
+  .flame-5 {
+    right: 3%;
+  }
+
+  .flame-6 {
+    right: 1%;
+  }
+}

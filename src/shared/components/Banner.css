@@ -1,0 +1,90 @@
+/* =========================================================
+   BANNER WAVE
+========================================================= */
+
+.banner-wave {
+  height: 360px;
+
+  background-image: url("/images/ukiyo-waves.png");
+
+  background-repeat: repeat-x;
+
+  background-position: 0 top;
+
+  background-size: 850px auto;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1200px) {
+
+  .banner-wave {
+    height: 360px;
+
+    background-size: 850px auto;
+  }
+
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1199px) {
+
+  .banner-wave {
+    height: 320px;
+
+    background-size: 720px auto;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .banner-wave {
+    height: 280px;
+
+    background-size: 600px auto;
+  }
+
+}
+
+
+/* =========================================================
+   LARGE MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .banner-wave {
+    height: 230px;
+
+    background-size: 480px auto;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .banner-wave {
+    height: 190px;
+
+    background-size: 390px auto;
+  }
+
+}

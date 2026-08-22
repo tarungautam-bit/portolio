@@ -1,11 +1,1326 @@
 @import "tailwindcss";
-*{
+
+/* =========================
+   RESET
+========================= */
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html,body{
+html,
+body,
+#root {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
+    background-color: var(--color-paper);
+}
+
+
+/* =========================
+   ROOT VARIABLES
+========================= */
+
+:root {
+
+    /* Colors */
+
+    --color-paper: #f5efe3;
+    --color-paper-dark: #e7dcc8;
+
+    --color-ink: #172f2c;
+    --color-ink-light: #52635f;
+
+    --color-red: #9a3f2f;
+    --color-red-dark: #713026;
+
+    --color-gold: #9a6a24;
+
+
+    /* Typography */
+
+    --font-display: "Bodoni Moda", serif;
+    --font-body: "Playfair Display SC", serif;
+
+
+    /* Layout */
+
+    --page-padding: 36px;
+    --content-width: 1400px;
+
+
+    /* Borders */
+
+    --border-color: rgba(23, 47, 44, 0.25);
+
+
+    /* Animation */
+
+    --ease-main: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --duration-fast: 0.3s;
+    --duration-normal: 0.6s;
+    --duration-slow: 1.2s;
+}
+
+
+/* =========================
+   VILLAGE GATE
+========================= */
+
+.gate-main-div {
+    position: relative;
+
+    width: 100%;
+    height: 100svh;
+    min-height: 100svh;
+
+    background-color: var(--color-paper);
+
+    display: grid;
+
+    grid-template-rows:
+        auto
+        minmax(0, 1fr)
+        auto;
+
+    overflow: hidden;
+
+
+    perspective: 1200px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header-div {
+    position: relative;
+    z-index: 2;
+
+    width: min(90%, 760px);
+
+    margin: 0 auto;
+
+    padding: 25px 20px 5px;
+
+    text-align: center;
+
+    color: var(--color-ink);
+}
+
+
+.header-eyebrow {
+    margin: 0 0 12px;
+
+    font-family: var(--font-body);
+
+    font-size: 16px;
+    font-weight: 900;
+
+    letter-spacing: 0.25em;
+
+    text-transform: uppercase;
+
+    color: var(--color-ink-light);
+}
+
+
+.header-div h1 {
+    margin: 0;
+
+    font-family: var(--font-display);
+
+    font-size: clamp(42px, 7vw, 100px);
+
+    font-weight: 600;
+
+    line-height: 0.9;
+
+    letter-spacing: -0.035em;
+
+    color: var(--color-ink);
+}
+
+
+.header-description {
+    max-width: 650px;
+
+    margin: 18px auto 0;
+
+    font-family: var(--font-body);
+
+    font-size: clamp(10px, 1.2vw, 14px);
+
+    line-height: 1.5;
+
+    color: var(--color-ink-light);
+}
+
+
+.header-description span {
+    font-family: var(--font-display);
+
+    font-size: 14px;
+
+    color: var(--color-red);
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   IMAGE SECTION
+========================= */
+
+.image-section {
+    position: relative;
+    z-index: 2;
+
+    min-height: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px 40px;
+
+    /*
+        Gives GSAP 3D transforms
+        a visible perspective.
+    */
+    perspective: 1000px;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   ARTWORK
+========================= */
+
+.image-section img {
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    border: 2px solid black;
+
+    padding: 15px;
+
+    background-color: white;
+
+    /*
+        Important for GSAP 3D movement.
+    */
+    transform-style: preserve-3d;
+
+    transform-origin: center center;
+
+    will-change: transform;
+}
+
+
+/* =========================
+   ENTER BUTTON
+========================= */
+
+.gate-action {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px 20px 25px;
+}
+
+
+.gate-action button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    min-width: 160px;
+
+    padding: 11px 18px;
+
+    border: 1px solid var(--color-ink);
+
+    border-radius: 0;
+
+    background: var(--color-ink);
+
+    color: var(--color-paper);
+
+    font-family: var(--font-body);
+
+    font-size: 10px;
+
+    letter-spacing: 0.12em;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--duration-fast) ease,
+        color var(--duration-fast) ease,
+        border-color var(--duration-fast) ease;
+}
+
+
+.gate-action__arrow {
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1;
+
+    transition:
+        transform var(--duration-fast) ease;
+}
+
+
+.gate-action button:hover {
+    background-color: transparent;
+
+    color: var(--color-ink);
+}
+
+
+.gate-action button:hover .gate-action__arrow {
+    transform: translateX(5px);
+}
+
+
+/* =========================
+   DECORATIVE ARTWORK
+========================= */
+
+.gate-decoration {
+    position: absolute;
+
+    z-index: 1;
+
+    display: block;
+
+    height: auto;
+
+    max-width: 45vw;
+
+    opacity: 0.8;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    will-change: transform, opacity;
+}
+
+
+/* =========================
+   TOP RIGHT VINE
+========================= */
+
+.gate-decoration--top-right {
+    top: clamp(-35px, -2vw, -10px);
+
+    right: clamp(-45px, -2vw, -10px);
+
+    width: clamp(
+        180px,
+        28vw,
+        440px
+    );
+}
+
+
+/* =========================
+   TOP LEFT VINE
+========================= */
+
+.gate-decoration--top-left {
+    top: clamp(-35px, -2vw, -10px);
+
+    left: clamp(-45px, -2vw, -10px);
+
+    width: clamp(
+        180px,
+        28vw,
+        440px
+    );
+}
+
+
+/* =========================
+   BOTTOM RIGHT TREE
+========================= */
+
+.gate-decoration--bottom-right {
+    bottom: -45px;
+
+    right: -55px;
+
+    width: clamp(
+        230px,
+        34vw,
+        500px
+    );
+
+    transform: scale(1.15);
+
+    transform-origin: bottom right;
+}
+
+
+/* =========================
+   BOTTOM LEFT TREE
+========================= */
+
+.gate-decoration--bottom-left {
+    bottom: -45px;
+
+    left: -55px;
+
+    width: clamp(
+        230px,
+        34vw,
+        500px
+    );
+
+    transform: scale(1.15);
+
+    transform-origin: bottom left;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .header-div {
+        width: 94%;
+
+        padding: 18px 12px 4px;
+    }
+
+
+    .header-eyebrow {
+        font-size: 9px;
+
+        letter-spacing: 0.18em;
+
+        margin-bottom: 10px;
+    }
+
+
+    .header-div h1 {
+        font-size: clamp(
+            38px,
+            12vw,
+            58px
+        );
+    }
+
+
+    .header-description {
+        margin-top: 12px;
+
+        font-size: 9px;
+
+        line-height: 1.45;
+    }
+
+
+    .header-description span {
+        font-size: 10px;
+    }
+
+
+    /* Artwork */
+
+    .image-section {
+        padding: 10px 20px;
+
+        perspective: 700px;
+    }
+
+
+    .image-section img {
+        max-width: 85%;
+
+        max-height: 100%;
+
+        padding: 10px;
+
+        border-width: 1px;
+    }
+
+
+    /* Button */
+
+    .gate-action {
+        padding: 10px 20px 25px;
+    }
+
+
+    .gate-action button {
+        min-width: 145px;
+
+        padding: 9px 14px;
+
+        font-size: 9px;
+    }
+
+
+    .gate-action__arrow {
+        font-size: 14px;
+    }
+
+
+    /* Decorations */
+
+    .gate-decoration {
+        max-width: 55vw;
+    }
+
+
+    .gate-decoration--top-right {
+        top: -15px;
+
+        right: -30px;
+
+        width: clamp(
+            140px,
+            42vw,
+            220px
+        );
+    }
+
+
+    .gate-decoration--top-left {
+        top: -15px;
+
+        left: -30px;
+
+        width: clamp(
+            140px,
+            42vw,
+            220px
+        );
+    }
+
+
+    .gate-decoration--bottom-right {
+        bottom: -30px;
+
+        right: -45px;
+
+        width: clamp(
+            180px,
+            48vw,
+            280px
+        );
+
+        transform: scale(1);
+
+        transform-origin: bottom right;
+    }
+
+
+    .gate-decoration--bottom-left {
+        bottom: -30px;
+
+        left: -45px;
+
+        width: clamp(
+            180px,
+            48vw,
+            280px
+        );
+
+        transform: scale(1);
+
+        transform-origin: bottom left;
+    }
+}
+
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
+@media (max-width: 380px) {
+
+    .header-div {
+        padding-top: 12px;
+    }
+
+
+    .header-eyebrow {
+        font-size: 8px;
+    }
+
+
+    .header-div h1 {
+        font-size: 36px;
+    }
+
+
+    .header-description {
+        font-size: 8px;
+    }
+
+
+    .image-section {
+        position: relative;
+
+        /*
+            The div itself becomes the card
+        */
+        width: fit-content;
+        height: fit-content;
+
+        max-width: 90%;
+        max-height: 100%;
+
+        place-self: center;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 15px;
+
+        background: white;
+
+        border: 2px solid black;
+
+        /*
+            3D
+        */
+        transform-style: preserve-3d;
+
+        transform-origin: center center;
+
+        will-change: transform;
+
+        /*
+            Shadow makes the card feel
+            physically separated from paper.
+        */
+        box-shadow:
+            12px 18px 30px rgba(23, 47, 44, 0.15);
+    }
+
+
+    .image-section img {
+        display: block;
+
+        width: auto;
+        height: auto;
+
+        max-width: 100%;
+        max-height: calc(100svh - 250px);
+
+        padding: 0;
+
+        border: none;
+
+        background: transparent;
+
+        display: block;
+    }
+
+
+    .gate-action {
+        padding-bottom: 18px;
+    }
+
+
+    .gate-action button {
+        min-width: 135px;
+
+        padding: 8px 12px;
+
+        font-size: 8px;
+    }
+
+
+    .gate-decoration {
+        max-width: 50vw;
+    }
+
+
+    .gate-decoration--top-right {
+        top: -10px;
+
+        right: -35px;
+
+        width: 155px;
+    }
+
+
+    .gate-decoration--top-left {
+        top: -10px;
+
+        left: -35px;
+
+        width: 155px;
+    }
+
+
+    .gate-decoration--bottom-right {
+        bottom: -25px;
+
+        right: -45px;
+
+        width: 190px;
+    }
+
+
+    .gate-decoration--bottom-left {
+        bottom: -25px;
+
+        left: -45px;
+
+        width: 190px;
+    }
+}
+
+.falling-petal {
+    position: absolute;
+    top: -20px;
+    z-index: 3;
+    pointer-events: none;
+    background: #e9a3ad;
+    border-radius: 100% 0 100% 0;
+    transform-origin: center;
+    will-change: transform, opacity;
+}
+
+.dragon-transition {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: var(--color-paper);
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   DRAGON IMAGE
+========================= */
+
+.dragon-transition__image {
+    position: relative;
+
+    display: block;
+
+    width: min(90vw, 1100px);
+    height: auto;
+
+    max-height: 90vh;
+
+    object-fit: contain;
+
+    will-change: transform, opacity;
+}
+
+
+/* =========================
+   DRAGON EYES
+========================= */
+
+.dragon-eye {
+    position: absolute;
+
+    width: 13px;
+    height: 7px;
+
+    border-radius: 100%;
+
+    background: #ffd50072;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform-origin: center;
+
+filter:
+    drop-shadow(0 0 4px #f2ff00)
+    drop-shadow(0 0 12px #ffcd18)
+    drop-shadow(0 0 25px rgb(239, 255, 20))
+    drop-shadow(0 0 45px rgba(201, 230, 10, 0.9))
+    drop-shadow(0 0 70px rgba(171, 200, 5, 0.6));
+    
+    will-change:
+        transform,
+        opacity,
+        filter;
+}
+
+
+/* =========================
+   EYE POSITIONS
+========================= */
+
+.dragon-eye--left {
+    left: 45.2%;
+    top: 50.4%;
+}
+
+.dragon-eye--right {
+    left: 51.5%;
+    top: 50.4%;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .dragon-transition__image {
+        width: 94vw;
+
+        max-height: 80vh;
+    }
+
+    .dragon-eye {
+        width: 8px;
+        height: 5px;
+
+        filter:
+            drop-shadow(0 0 2px #8f8d01c1)
+            drop-shadow(0 0 5px rgba(217, 211, 50, 0.7))
+            drop-shadow(0 0 10px rgba(206, 217, 50, 0.4));
+    }
+
+}
+
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
+@media (max-width: 380px) {
+
+    .dragon-transition__image {
+        width: 96vw;
+
+        max-height: 75vh;
+    }
+
+    .dragon-eye {
+        width: 7px;
+        height: 4px;
+    }
+
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+  position: relative;
+
+  width: 100%;
+
+  padding: 25px 5vw 0;
+
+  box-sizing: border-box;
+
+  z-index: 9999;
+
+  background: transparent;
+}
+
+
+/* =========================================
+   INNER
+========================================= */
+
+.navbar-inner {
+  width: min(1100px, 90vw);
+
+  height: 70px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  background: #f7f1e8;
+
+  border: 1px solid rgba(24, 63, 57, 0.15);
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 12px 35px rgba(24, 63, 57, 0.08);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.navbar-logo {
+  width: 200px;
+
+  height: 100%;
+
+  flex: 0 0 80px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-decoration: none;
+}
+
+.navbar-logo img {
+ 
+
+  height: 100px;
+
+  display: block;
+
+  transform: scale(1.5);
+  object-fit: contain;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navbar-links {
+  flex: 1;
+
+  min-width: 0;
+
+  height: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  align-items: center;
+
+  padding: 0 25px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   LINK
+========================================= */
+
+.navbar-link {
+  position: relative;
+
+  min-width: 0;
+
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #174b43;
+
+  text-decoration: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.3s ease;
+}
+
+
+/* =========================================
+   HOVER / ACTIVE
+========================================= */
+
+.navbar-link:hover,
+.navbar-link.active {
+  color: #8b1d24;
+}
+
+
+/* =========================================
+   UNDERLINE
+========================================= */
+
+.navbar-link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 16px;
+
+  width: 26px;
+
+  height: 1px;
+
+  background: currentColor;
+
+  transform:
+    translateX(-50%)
+    scaleX(0);
+
+  transform-origin: center;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.navbar-link:hover::after,
+.navbar-link.active::after {
+  transform:
+    translateX(-50%)
+    scaleX(1);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .navbar {
+    padding: 20px;
+  }
+
+  .navbar-inner {
+    width: calc(100% - 40px);
+
+    height: 65px;
+  }
+
+  .navbar-logo {
+    width: 65px;
+
+    flex-basis: 65px;
+  }
+
+  .navbar-logo img {
+    width: 36px;
+    transform: scale(1.5);
+
+    height: 36px;
+  }
+
+  .navbar-links {
+    padding: 0 15px;
+  }
+
+  .navbar-link {
+    font-size: 10px;
+
+    letter-spacing: 1px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .navbar {
+    padding: 15px 10px 0;
+  }
+
+  .navbar-inner {
+    width: calc(100% - 20px);
+
+    height: 60px;
+
+    border-radius: 12px;
+  }
+
+  .navbar-logo {
+    width: 48px;
+
+    flex-basis: 48px;
+  }
+
+  .navbar-logo img {
+    width: 31px;
+    transform: scale(3);
+
+    height: 31px;
+  }
+
+  .navbar-links {
+    padding: 0 5px;
+  }
+
+  .navbar-link {
+    font-size: 7px;
+
+    letter-spacing: 0.3px;
+  }
+
+  .navbar-link::after {
+    bottom: 11px;
+
+    width: 16px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+  .navbar {
+    padding-left: 6px;
+
+    padding-right: 6px;
+  }
+
+  .navbar-inner {
+    width: calc(100% - 12px);
+
+    height: 56px;
+  }
+
+  .navbar-logo {
+    width: 40px;
+
+    flex-basis: 40px;
+  }
+
+  .navbar-logo img {
+    width: 27px;
+
+    transform: scale(1.5);
+    height: 27px;
+  }
+
+  .navbar-links {
+    padding: 0 2px;
+  }
+
+  .navbar-link {
+    font-size: 6px;
+
+    letter-spacing: 0.15px;
+  }
+}
+
+
+/* =========================================================
+   OCEAN SECTION
+   Very subtle water atmosphere
+========================================================= */
+
+.ocean-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  /*
+   * Keep your existing page background visible.
+   */
+  background: transparent;
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   VERY LIGHT WATER TINT
+========================================================= */
+
+.ocean-section::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  /*
+   * VERY LOW opacity blue.
+   * Your existing colors remain visible.
+   */
+  background:
+    linear-gradient(
+      180deg,
+      rgba(80, 170, 210, 0.08),
+      rgba(30, 130, 180, 0.12)
+    );
+}
+
+
+/* =========================================================
+   SOFT UNDERWATER LIGHT
+========================================================= */
+
+.ocean-section::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -20%;
+
+  width: 140%;
+  height: 100%;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(150, 220, 240, 0.12),
+      transparent 55%
+    );
+
+  opacity: 0.6;
+
+  animation: oceanLight 12s ease-in-out infinite alternate;
+}
+
+
+@keyframes oceanLight {
+
+  from {
+    transform: translateX(-40px);
+  }
+
+  to {
+    transform: translateX(40px);
+  }
+
+}
+
+
+/* =========================================================
+   KEEP ALL EXISTING CONTENT ABOVE EFFECT
+========================================================= */
+
+.ocean-section > section {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================================================
+   FISH
+========================================================= */
+
+.ocean-fish-container {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  z-index: 4;
+
+  pointer-events: none;
+}
+
+.ocean-fish {
+  position: absolute;
+
+  width: 55px;
+  height: auto;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  filter:
+    drop-shadow(
+      0 4px 7px rgba(0, 60, 100, 0.12)
+    );
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .ocean-section::before {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(80, 170, 210, 0.06),
+        rgba(30, 130, 180, 0.09)
+      );
+  }
+
+  .ocean-fish {
+    width: 32px;
+  }
+
 }
