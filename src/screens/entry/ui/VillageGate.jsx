@@ -174,7 +174,7 @@ const VillageGate = () => {
 
         try {
 
-            // await dispatch(markFirstVisit()).unwrap();
+            await dispatch(markFirstVisit()).unwrap();
 
             const dragon = document.createElement("div");
 
