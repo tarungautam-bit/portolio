@@ -992,35 +992,35 @@ function Mission() {
 
         <img
           className="weapon-flash"
-          src="/images/samurai.png"
+          src="/images/samurai.webp"
           alt=""
           draggable="false"
         />
 
         <img
           className="weapon-flash"
-          src="/images/samurai1.png"
+          src="/images/samurai1.webp"
           alt=""
           draggable="false"
         />
 
         <img
           className="weapon-flash"
-          src="/images/samurai2.png"
+          src="/images/samurai2.webp"
           alt=""
           draggable="false"
         />
 
         <img
           className="weapon-flash"
-          src="/images/samurai3.png"
+          src="/images/samurai3.webp"
           alt=""
           draggable="false"
         />
 
         <img
           className="weapon-flash"
-          src="/images/samurai4.png"
+          src="/images/samurai4.webp"
           alt=""
           draggable="false"
         />
@@ -1038,7 +1038,7 @@ function Mission() {
 
           <img
             className="projects-hero-art"
-            src="/images/project-banner.png"
+            src="/images/project-banner.webp"
             alt=""
             draggable="false"
           />
@@ -1118,7 +1118,7 @@ function Mission() {
           <div className="featured-project-image">
 
             <img
-              src="/images/project-01.jpg"
+              src="/images/project-01.webp"
               alt="Dragon's Roar"
             />
 
@@ -1209,7 +1209,7 @@ function Mission() {
             <div className="project-card-image">
 
               <img
-                src="/images/project-02.jpg"
+                src="/images/project-02.webp"
                 alt="Floating World"
               />
 
@@ -1250,7 +1250,7 @@ function Mission() {
             <div className="project-card-image">
 
               <img
-                src="/images/project-03.jpg"
+                src="/images/project-03.webp"
                 alt="Chashitsu Store"
               />
 
@@ -1291,7 +1291,7 @@ function Mission() {
             <div className="project-card-image">
 
               <img
-                src="/images/project-04.jpg"
+                src="/images/project-04.webp"
                 alt="Origami UI Kit"
               />
 
@@ -1332,7 +1332,7 @@ function Mission() {
             <div className="project-card-image">
 
               <img
-                src="/images/project-05.jpg"
+                src="/images/project-05.webp"
                 alt="Modern Samurai"
               />
 

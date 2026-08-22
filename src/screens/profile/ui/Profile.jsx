@@ -621,42 +621,42 @@ function Profile() {
 
         <img
           className="floating-flame flame-1"
-          src="/images/flame.png"
+          src="/images/flame.webp"
           alt=""
           draggable="false"
         />
 
         <img
           className="floating-flame flame-2"
-          src="/images/flame2.png"
+          src="/images/flame2.webp"
           alt=""
           draggable="false"
         />
 
         <img
           className="floating-flame flame-3"
-          src="/images/flame3.png"
+          src="/images/flame3.webp"
           alt=""
           draggable="false"
         />
 
         <img
           className="floating-flame flame-4"
-          src="/images/flame4.png"
+          src="/images/flame4.webp"
           alt=""
           draggable="false"
         />
 
         <img
           className="floating-flame flame-5"
-          src="/images/flame.png"
+          src="/images/flame.webp"
           alt=""
           draggable="false"
         />
 
         <img
           className="floating-flame flame-6"
-          src="/images/flame.png"
+          src="/images/flame.webp"
           alt=""
           draggable="false"
         />
@@ -679,7 +679,7 @@ function Profile() {
 
           <img
             className="about-fire-art"
-            src="/images/about_banner.png"
+            src="/images/about_banner.webp"
             alt=""
             draggable="false"
           />

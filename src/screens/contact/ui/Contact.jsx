@@ -224,7 +224,7 @@ function Contact() {
 
           <img
             className="contact-art"
-            src="/images/contact-art.jpg"
+            src="/images/contact-art.webp"
             alt=""
             draggable="false"
           />

@@ -351,14 +351,14 @@ if (fishContainer) {
 
         <img
           className="hero-wave hero-wave-left left-wave"
-          src="/images/wave1.png"
+          src="/images/wave1.webp"
           alt=""
           draggable="false"
         />
 
         <img
           className="hero-wave hero-wave-right right-wave"
-          src="/images/wave2.png"
+          src="/images/wave2.webp"
           alt=""
           draggable="false"
         />
@@ -396,119 +396,119 @@ if (fishContainer) {
 
           <img
             className="ocean-fish"
-            src="/images/fish.png"
+            src="/images/fish.webp"
             alt=""
             draggable="false"
           />
 
           <img
             className="ocean-fish"
-            src="/images/bubble.png"
+            src="/images/bubble.webp"
             alt=""
             draggable="false"
           />
 
           <img
             className="ocean-fish"
-            src="/images/bubble.png"
+            src="/images/bubble.webp"
             alt=""
             draggable="false"
           />
 
           <img
             className="ocean-fish"
-            src="/images/algae1.png"
+            src="/images/algae1.webp"
             alt=""
             draggable="false"
           />
 
           <img
             className="ocean-fish"
-            src="/images/fish4.png"
+            src="/images/fish4.webp"
             alt=""
             draggable="false"
           />
 
           <img
             className="ocean-fish"
-            src="/images/fish2.png"
+            src="/images/fish2.webp"
             alt=""
             draggable="false"
           />
 
           <img
             className="ocean-fish"
-            src="/images/bubble.png"
+            src="/images/bubble.webp"
             alt=""
             draggable="false"
           />
 
           <img
             className="ocean-fish"
-            src="/images/fish3.png"
+            src="/images/fish3.webp"
             alt=""
             draggable="false"
           />
 
           <img
             className="ocean-fish"
-            src="/images/fish.png"
+            src="/images/fish.webp"
             alt=""
             draggable="false"
           />
 
           <img
             className="ocean-fish"
-            src="/images/bubble.png"
+            src="/images/bubble.webp"
             alt=""
             draggable="false"
           />
 
           <img
             className="ocean-fish"
-            src="/images/bubble.png"
+            src="/images/bubble.webp"
             alt=""
             draggable="false"
           />
 
           <img
             className="ocean-fish"
-            src="/images/bubble.png"
+            src="/images/bubble.webp"
             alt=""
             draggable="false"
           />
 
           <img
             className="ocean-fish"
-            src="/images/algae1.png"
+            src="/images/algae1.webp"
             alt=""
             draggable="false"
           />
 
           <img
             className="ocean-fish"
-            src="/images/fish.png"
+            src="/images/fish.webp"
             alt=""
             draggable="false"
           />
 
           <img
             className="ocean-fish"
-            src="/images/algae1.png"
+            src="/images/algae1.webp"
             alt=""
             draggable="false"
           />
 
           <img
             className="ocean-fish"
-            src="/images/fish.png"
+            src="/images/fish.webp"
             alt=""
             draggable="false"
           />
 
           <img
             className="ocean-fish"
-            src="/images/algae1.png"
+            src="/images/algae1.webp"
             alt=""
             draggable="false"
           />
@@ -564,14 +564,14 @@ if (fishContainer) {
 
             <div className="gallery-image gallery-image-large">
               <img
-                src="/images/project1.jpg"
+                src="/images/project1.webp"
                 alt=""
               />
             </div>
 
             <div className="gallery-image gallery-image-small">
               <img
-                src="/images/project2.jpg"
+                src="/images/project2.webp"
                 alt=""
               />
             </div>
@@ -579,7 +579,7 @@ if (fishContainer) {
             <div className="gallery-image gallery-image-card">
 
               <img
-                src="/images/project3.png"
+                src="/images/project3.webp"
                 alt=""
               />
 
@@ -660,7 +660,7 @@ if (fishContainer) {
               <div className="project-image">
 
                 <img
-                  src="/images/project-01.jpg"
+                  src="/images/project-01.webp"
                   alt="Dragon project"
                 />
 
@@ -696,7 +696,7 @@ if (fishContainer) {
               <div className="project-image">
 
                 <img
-                  src="/images/project-02.jpg"
+                  src="/images/project-02.webp"
                   alt="Japanese inspired project"
                 />
 
@@ -732,7 +732,7 @@ if (fishContainer) {
               <div className="project-image">
 
                 <img
-                  src="/images/project-03.jpg"
+                  src="/images/project-03.webp"
                   alt=""
                 />
 
@@ -760,7 +760,7 @@ if (fishContainer) {
               <div className="project-image">
 
                 <img
-                  src="/images/project-04.jpg"
+                  src="/images/project-04.webp"
                   alt=""
                 />
 

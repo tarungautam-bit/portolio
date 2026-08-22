@@ -184,7 +184,7 @@ const VillageGate = () => {
                 <div class="dragon-art">
 
                     <img
-                        src="/images/dragon.png"
+                        src="/images/dragon.webp"
                         alt=""
                         class="dragon-transition__image"
                     />
@@ -325,25 +325,25 @@ const VillageGate = () => {
 
             <img
                 className="gate-decoration gate-decoration--top-right"
-                src="/images/vine1.png"
+                src="/images/vine1.webp"
                 alt=""
             />
 
             <img
                 className="gate-decoration gate-decoration--top-left"
-                src="/images/vine2.png"
+                src="/images/vine2.webp"
                 alt=""
             />
 
             <img
                 className="gate-decoration gate-decoration--bottom-right"
-                src="/images/blossom2.png"
+                src="/images/blossom2.webp"
                 alt=""
             />
 
             <img
                 className="gate-decoration gate-decoration--bottom-left"
-                src="/images/blossom1.png"
+                src="/images/blossom1.webp"
                 alt=""
             />
 
@@ -369,7 +369,7 @@ const VillageGate = () => {
             <section className="image-section">
 
                 <img
-                    src="/images/village-gate.png"
+                    src="/images/village-gate.webp"
                     alt="Gate Image"
                 />
 
