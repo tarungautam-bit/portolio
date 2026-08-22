@@ -22,6 +22,8 @@ import {
 } from "lucide-react";
 
 import "./Profile.css";
+import ThunderEffect from "../../../shared/components/ThunderEffect";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -609,6 +611,7 @@ function Profile() {
       ref={pageRef}
       className="about-page"
     >
+      
 
       {/* =====================================================
           GLOBAL FLOATING FLAMES
@@ -618,6 +621,7 @@ function Profile() {
         className="global-flames"
         aria-hidden="true"
       >
+        <ThunderEffect/>
 
         <img
           className="floating-flame flame-1"

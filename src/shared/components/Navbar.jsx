@@ -241,7 +241,7 @@ function Navbar() {
           <img
             ref={logoRef}
             className="logo"
-            src="/images/logo.png"
+            src="/images/logo.webp"
             alt="Website Logo"
           />
         </NavLink>

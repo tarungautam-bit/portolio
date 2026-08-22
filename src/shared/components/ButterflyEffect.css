@@ -1,0 +1,55 @@
+.ukiyo-butterfly-effect {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  pointer-events: none;
+
+  overflow: hidden;
+
+  z-index: 99998;
+
+  isolation: isolate;
+}
+
+.ukiyo-butterfly {
+  position: absolute;
+
+  display: block;
+
+  height: auto;
+
+  max-width: none;
+
+  object-fit: contain;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  will-change:
+    transform,
+    opacity;
+
+  transform-origin:
+    50% 50%;
+
+  backface-visibility: hidden;
+
+  filter:
+    drop-shadow(
+      0 5px 8px
+      rgba(0, 0, 0, 0.16)
+    );
+
+  mix-blend-mode: multiply;
+}
+
+@media (max-width: 768px) {
+  .ukiyo-butterfly {
+    width: 32px !important;
+  }
+}

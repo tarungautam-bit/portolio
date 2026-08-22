@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 
 import "./Mission.css";
+import ThunderEffect from "../../../shared/components/ThunderEffect";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -981,6 +982,7 @@ function Mission() {
   return (
     <main className="projects-page">
 
+<ThunderEffect/>
       {/* =====================================================
           SAMURAI LAYER
       ===================================================== */}

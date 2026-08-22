@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Banner from "../../../shared/components/Banner";
 import "./Homepage.css";
+import SunriseEffect from "../../../shared/components/SunriseEffect";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -516,7 +517,7 @@ function Homepage() {
 
   return (
     <div className="home-page">
-
+<SunriseEffect/>
       {/* =====================================================
           HERO
       ===================================================== */}
@@ -1003,10 +1004,10 @@ function Homepage() {
               experiences.
             </p>
 
-            <a
-              href="mailto:hello@example.com"
-              className="commission-button"
-            >
+           <a
+            href="/contact"
+            className="projects-contact-button"
+          >
               START A CONVERSATION →
             </a>
 

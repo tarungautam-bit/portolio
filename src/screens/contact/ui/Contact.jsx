@@ -1,10 +1,9 @@
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import {
   Mail,
-  Phone,
   MapPin,
   ArrowUpRight,
   Send,
@@ -13,194 +12,925 @@ import {
 } from "lucide-react";
 
 import "./Contact.css";
+import ButterflyEffect from "../../../shared/components/ButterflYEffect";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function Contact() {
   const pageRef = useRef(null);
 
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
+  useEffect(() => {
+    let ctx;
+    let initTimer;
+    let refreshTimer;
 
-      /* =========================================
-         HERO
-      ========================================= */
+    let scrollHandler = null;
+    let firstLadyTimer = null;
+    let randomLadyTimer = null;
 
-      const heroTimeline = gsap.timeline();
+    const ladyAnimations = [];
 
-      heroTimeline
-        .from(".contact-kicker", {
-          y: 30,
-          opacity: 0,
-          duration: 0.7,
-          ease: "power3.out",
-        })
-        .from(
-          ".contact-title",
-          {
-            y: 80,
+    /*
+    =====================================================
+    WAIT UNTIL CONTACT ROUTE IS MOUNTED
+    =====================================================
+    */
+
+    initTimer = setTimeout(() => {
+      const page = pageRef.current;
+
+      if (!page) return;
+
+      /*
+      =====================================================
+      RESET SCROLL
+      =====================================================
+      */
+
+      window.scrollTo(0, 0);
+
+      /*
+      =====================================================
+      GSAP CONTEXT
+      =====================================================
+      */
+
+      ctx = gsap.context(() => {
+        /*
+        =====================================================
+        HERO
+        =====================================================
+        */
+
+        const heroTimeline = gsap.timeline();
+
+        heroTimeline
+          .from(".contact-kicker", {
+            y: 30,
             opacity: 0,
-            duration: 1,
-            ease: "power4.out",
-          },
-          "-=0.3"
-        )
-        .from(
-          ".contact-description",
-          {
-            y: 35,
-            opacity: 0,
-            duration: 0.8,
+            duration: 0.7,
             ease: "power3.out",
-          },
-          "-=0.5"
-        )
-        .from(
-          ".contact-kanji",
+          })
+
+          .from(
+            ".contact-title",
+            {
+              y: 80,
+              opacity: 0,
+              duration: 1,
+              ease: "power4.out",
+            },
+            "-=0.3"
+          )
+
+          .from(
+            ".contact-description",
+            {
+              y: 35,
+              opacity: 0,
+              duration: 0.8,
+              ease: "power3.out",
+            },
+            "-=0.5"
+          )
+
+          .from(
+            ".contact-kanji",
+            {
+              scale: 0,
+              rotation: -25,
+              opacity: 0,
+              duration: 0.8,
+              ease: "back.out(1.7)",
+            },
+            "-=0.5"
+          );
+
+        /*
+        =====================================================
+        CONTACT ART FLOAT
+        =====================================================
+        */
+
+        gsap.to(".contact-art-frame", {
+          y: -12,
+          rotation: 1,
+          duration: 4,
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true,
+        });
+
+        /*
+        =====================================================
+        RANDOM UKIYO-E LADIES
+        =====================================================
+
+        IMPORTANT:
+
+        - NOT connected to contact hero
+        - NOT controlled by hero ScrollTrigger
+        - Can appear anywhere in viewport
+        - Appears while scrolling
+        - Can also appear while user pauses
+        - Random image
+        - Random position
+        - Random direction
+        - Random rotation
+        - Small but detailed
+        =====================================================
+        */
+
+        // const ladies = page.querySelectorAll(
+        //   ".contact-ukiyo-lady"
+        // );
+
+        // const random = (min, max) => {
+        //   return gsap.utils.random(min, max);
+        // };
+
+        // /*
+        // =====================================================
+        // RANDOM LADY
+        // =====================================================
+        // */
+
+        // const getRandomLady = () => {
+        //   if (!ladies.length) {
+        //     return null;
+        //   }
+
+        //   const availableLadies =
+        //     Array.from(ladies).filter(
+        //       (lady) =>
+        //         !lady.classList.contains(
+        //           "lady-active"
+        //         )
+        //     );
+
+        //   const pool =
+        //     availableLadies.length
+        //       ? availableLadies
+        //       : Array.from(ladies);
+
+        //   return pool[
+        //     Math.floor(
+        //       Math.random() * pool.length
+        //     )
+        //   ];
+        // };
+
+        // /*
+        // =====================================================
+        // SHOW RANDOM LADY
+        // =====================================================
+        // */
+
+        // const showRandomLady = () => {
+        //   const lady = getRandomLady();
+
+        //   if (!lady) {
+        //     return;
+        //   }
+
+        //   /*
+        //   ---------------------------------------------------
+        //   VIEWPORT
+        //   ---------------------------------------------------
+        //   */
+
+        //   const viewportWidth =
+        //     window.innerWidth;
+
+        //   const viewportHeight =
+        //     window.innerHeight;
+
+        //   /*
+        //   ---------------------------------------------------
+        //   SMALL SIZE
+          
+        //   CSS controls base width.
+        //   GSAP adds a subtle random scale.
+        //   ---------------------------------------------------
+        //   */
+
+        //   const scale = random(
+        //     0.78,
+        //     0.94
+        //   );
+
+        //   /*
+        //   ---------------------------------------------------
+        //   RANDOM POSITION
+
+        //   Keep characters away from extreme edges.
+        //   ---------------------------------------------------
+        //   */
+
+        //   const maxX = Math.max(
+        //     30,
+        //     viewportWidth - 210
+        //   );
+
+        //   const maxY = Math.max(
+        //     80,
+        //     viewportHeight - 300
+        //   );
+
+        //   const x = random(
+        //     25,
+        //     maxX
+        //   );
+
+        //   const y = random(
+        //     75,
+        //     maxY
+        //   );
+
+        //   /*
+        //   ---------------------------------------------------
+        //   RANDOM ROTATION
+        //   ---------------------------------------------------
+        //   */
+
+        //   const rotation = random(
+        //     -8,
+        //     8
+        //   );
+
+        //   /*
+        //   ---------------------------------------------------
+        //   RANDOM ENTRANCE DIRECTION
+        //   ---------------------------------------------------
+        //   */
+
+        //   const directions = [
+        //     {
+        //       x: -180,
+        //       y: random(-80, 80),
+        //     },
+
+        //     {
+        //       x: 180,
+        //       y: random(-80, 80),
+        //     },
+
+        //     {
+        //       x: random(-80, 80),
+        //       y: -180,
+        //     },
+
+        //     {
+        //       x: random(-80, 80),
+        //       y: 180,
+        //     },
+        //   ];
+
+        //   const direction =
+        //     directions[
+        //       Math.floor(
+        //         Math.random() *
+        //           directions.length
+        //       )
+        //     ];
+
+        //   /*
+        //   ---------------------------------------------------
+        //   STOP PREVIOUS ANIMATION
+        //   ---------------------------------------------------
+        //   */
+
+        //   gsap.killTweensOf(lady);
+
+        //   lady.classList.add(
+        //     "lady-active"
+        //   );
+
+        //   /*
+        //   ---------------------------------------------------
+        //   INITIAL STATE
+        //   ---------------------------------------------------
+        //   */
+
+        //   gsap.set(lady, {
+        //     position: "fixed",
+
+        //     left: x,
+        //     top: y,
+
+            
+        //     x: direction.x,
+        //     y: direction.y,
+
+        //     rotation:
+        //       rotation +
+        //       random(-4, 4),
+
+        //     scale:
+        //       scale * 0.78,
+
+        //     opacity: 0,
+
+        //     zIndex: 50,
+
+        //     transformOrigin:
+        //       "center center",
+        //   });
+
+        //   /*
+        //   ---------------------------------------------------
+        //   TIMELINE
+        //   ---------------------------------------------------
+        //   */
+
+        //   const timeline =
+        //     gsap.timeline({
+        //       onComplete: () => {
+        //         lady.classList.remove(
+        //           "lady-active"
+        //         );
+        //       },
+        //     });
+
+        //   ladyAnimations.push(
+        //     timeline
+        //   );
+
+        //   /*
+        //   ===================================================
+        //   1. ENTER
+        //   ===================================================
+        //   */
+
+        //   timeline.to(lady, {
+        //     x: 0,
+        //     y: 0,
+
+        //     opacity: random(
+        //       0.78,
+        //       0.94
+        //     ),
+
+        //     scale,
+
+        //     rotation,
+
+        //     duration: random(
+        //       0.8,
+        //       1.2
+        //     ),
+
+        //     ease: "power3.out",
+        //   });
+
+        //   /*
+        //   ===================================================
+        //   2. FLOAT
+        //   ===================================================
+        //   */
+
+        //   timeline.to(lady, {
+        //     y: random(
+        //       -10,
+        //       10
+        //     ),
+
+        //     rotation:
+        //       rotation +
+        //       random(-2, 2),
+
+        //     duration: random(
+        //       2.4,
+        //       3.6
+        //     ),
+
+        //     ease: "sine.inOut",
+
+        //     yoyo: true,
+
+        //     repeat: 1,
+        //   });
+
+        //   /*
+        //   ===================================================
+        //   3. HOLD
+        //   ===================================================
+        //   */
+
+        //   timeline.to({}, {
+        //     duration: random(
+        //       0.8,
+        //       1.6
+        //     ),
+        //   });
+
+        //   /*
+        //   ===================================================
+        //   4. EXIT
+        //   ===================================================
+        //   */
+
+        //   timeline.to(lady, {
+        //     opacity: 0,
+
+        //     x:
+        //       direction.x *
+        //       0.35,
+
+        //     y:
+        //       direction.y *
+        //       0.35,
+
+        //     scale:
+        //       scale * 0.88,
+
+        //     duration: random(
+        //       0.7,
+        //       1.1
+        //     ),
+
+        //     ease: "power2.in",
+        //   });
+        // };
+
+        /*
+        =====================================================
+        SCROLL-BASED RANDOM SPAWN
+        =====================================================
+        */
+
+        let lastScrollY =
+          window.scrollY;
+
+        let scrollDistance = 0;
+
+        let lastSpawnTime = 0;
+
+        scrollHandler = () => {
+          const currentScrollY =
+            window.scrollY;
+
+          const difference =
+            Math.abs(
+              currentScrollY -
+                lastScrollY
+            );
+
+          scrollDistance +=
+            difference;
+
+          lastScrollY =
+            currentScrollY;
+
+          const now =
+            performance.now();
+
+          /*
+          -----------------------------------------------
+          DON'T SPAWN TOO FREQUENTLY
+          -----------------------------------------------
+          */
+
+          if (
+            now -
+              lastSpawnTime <
+            1800
+          ) {
+            return;
+          }
+
+          /*
+          -----------------------------------------------
+          SPAWN AFTER ~400PX SCROLL
+          -----------------------------------------------
+          */
+
+          if (
+            scrollDistance <
+            400
+          ) {
+            return;
+          }
+
+          scrollDistance = 0;
+
+          lastSpawnTime = now;
+
+          showRandomLady();
+        };
+
+        window.addEventListener(
+          "scroll",
+          scrollHandler,
           {
-            scale: 0,
-            rotation: -25,
-            opacity: 0,
-            duration: 0.8,
-            ease: "back.out(1.7)",
-          },
-          "-=0.5"
+            passive: true,
+          }
         );
 
-      /* =========================================
-         WAVE / ART FLOAT
-      ========================================= */
+        /*
+        =====================================================
+        FIRST LADY
+        =====================================================
+        */
 
-      gsap.to(".contact-art", {
-        y: -12,
-        rotation: 1,
-        duration: 4,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
+        firstLadyTimer =
+          gsap.delayedCall(
+            2.5,
+            () => {
+              showRandomLady();
+            }
+          );
 
-      /* =========================================
-         SECTION HEADINGS
-      ========================================= */
+        /*
+        =====================================================
+        RANDOM OCCASIONAL SPAWN
+        =====================================================
 
-      gsap.utils
-        .toArray(".contact-section-heading")
-        .forEach((heading) => {
-          gsap.from(heading, {
-            y: 55,
-            opacity: 0,
-            duration: 0.9,
-            ease: "power3.out",
+        This makes the characters appear even if
+        the visitor stays on the same section.
+        =====================================================
+        */
 
-            scrollTrigger: {
-              trigger: heading,
-              start: "top 85%",
-              toggleActions:
-                "play none none reverse",
-            },
+        const scheduleRandomLady =
+          () => {
+            randomLadyTimer =
+              gsap.delayedCall(
+                random(5, 8),
+                () => {
+                  showRandomLady();
+
+                  scheduleRandomLady();
+                }
+              );
+          };
+
+        scheduleRandomLady();
+
+        /*
+        =====================================================
+        SECTION HEADINGS
+        =====================================================
+        */
+
+        gsap.utils
+          .toArray(
+            ".contact-section-heading"
+          )
+          .forEach((heading) => {
+            gsap.fromTo(
+              heading,
+
+              {
+                y: 60,
+                opacity: 0,
+              },
+
+              {
+                y: 0,
+                opacity:1,
+
+                duration: 1,
+
+                ease: "power3.out",
+
+                scrollTrigger: {
+                  trigger: heading,
+
+                  start: "top 85%",
+
+                  toggleActions:
+                    "play none none reverse",
+
+                  invalidateOnRefresh:
+                    true,
+                },
+              }
+            );
           });
+
+        /*
+        =====================================================
+        CONTACT INFORMATION CARDS
+        =====================================================
+        */
+
+        gsap.utils
+          .toArray(
+            ".contact-info-card"
+          )
+          .forEach(
+            (card, index) => {
+              gsap.fromTo(
+                card,
+
+                {
+                  y: 60,
+                  opacity: 0,
+                },
+
+                {
+                  y: 0,
+                  opacity: 1,
+
+                  duration: 0.8,
+
+                  delay:
+                    index * 0.1,
+
+                  ease: "power3.out",
+
+                  scrollTrigger: {
+                    trigger: card,
+
+                    start: "top 88%",
+
+                    toggleActions:
+                      "play none none reverse",
+
+                    invalidateOnRefresh:
+                      true,
+                  },
+                }
+              );
+            }
+          );
+
+        /*
+        =====================================================
+        FORM
+        =====================================================
+        */
+
+        const formWrapper =
+          page.querySelector(
+            ".contact-form-wrapper"
+          );
+
+        if (formWrapper) {
+          gsap.fromTo(
+            formWrapper,
+
+            {
+              x: 80,
+              opacity: 0,
+            },
+
+            {
+              x: 0,
+              opacity: 1,
+
+              duration: 1,
+
+              ease: "power3.out",
+
+              scrollTrigger: {
+                trigger:
+                  formWrapper,
+
+                start: "top 80%",
+
+                toggleActions:
+                  "play none none reverse",
+
+                invalidateOnRefresh:
+                  true,
+              },
+            }
+          );
+        }
+
+        /*
+        =====================================================
+        FORM FIELDS
+        =====================================================
+        */
+
+        const formFields =
+          page.querySelectorAll(
+            ".contact-form-field"
+          );
+
+        formFields.forEach(
+          (field, index) => {
+            gsap.fromTo(
+              field,
+
+              {
+                y: 30,
+                opacity: 0,
+              },
+
+              {
+                y: 0,
+                opacity: 1,
+
+                duration: 0.6,
+
+                delay:
+                  index * 0.1,
+
+                ease: "power3.out",
+
+                scrollTrigger: {
+                  trigger:
+                    formWrapper ||
+                    field,
+
+                  start: "top 82%",
+
+                  toggleActions:
+                    "play none none reverse",
+
+                  invalidateOnRefresh:
+                    true,
+                },
+              }
+            );
+          }
+        );
+
+        /*
+        =====================================================
+        AVAILABILITY
+        =====================================================
+        */
+
+        const availabilitySection =
+          page.querySelector(
+            ".availability-section"
+          );
+
+        const availabilityContent =
+          page.querySelector(
+            ".availability-content"
+          );
+
+        if (
+          availabilitySection &&
+          availabilityContent
+        ) {
+          gsap.fromTo(
+            availabilityContent,
+
+            {
+              y: 70,
+              opacity: 0,
+            },
+
+            {
+              y: 0,
+              opacity: 1,
+
+              duration: 1,
+
+              ease: "power3.out",
+
+              scrollTrigger: {
+                trigger:
+                  availabilitySection,
+
+                start: "top 80%",
+
+                toggleActions:
+                  "play none none reverse",
+
+                invalidateOnRefresh:
+                  true,
+              },
+            }
+          );
+        }
+
+        /*
+        =====================================================
+        CLOSING
+        =====================================================
+        */
+
+        const closing =
+          page.querySelector(
+            ".contact-closing"
+          );
+
+        const closingContent =
+          page.querySelector(
+            ".contact-closing-content"
+          );
+
+        if (
+          closing &&
+          closingContent
+        ) {
+          gsap.fromTo(
+            closingContent,
+
+            {
+              y: 70,
+              opacity: 0,
+            },
+
+            {
+              y: 0,
+              opacity: 1,
+
+              duration: 1.1,
+
+              ease: "power3.out",
+
+              scrollTrigger: {
+                trigger: closing,
+
+                start: "top 80%",
+
+                toggleActions:
+                  "play none none reverse",
+
+                invalidateOnRefresh:
+                  true,
+              },
+            }
+          );
+        }
+
+        /*
+        =====================================================
+        INITIAL REFRESH
+        =====================================================
+        */
+
+        ScrollTrigger.refresh(true);
+
+      }, page);
+
+      /*
+      =====================================================
+      REFRESH AFTER ROUTE / LAYOUT SETTLES
+      =====================================================
+      */
+
+      refreshTimer = setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "instant",
         });
 
-      /* =========================================
-         CONTACT CARDS
-      ========================================= */
+        ScrollTrigger.refresh(true);
+        ScrollTrigger.update();
+      }, 300);
 
-      gsap.utils
-        .toArray(".contact-info-card")
-        .forEach((card, index) => {
-          gsap.from(card, {
-            y: 60,
-            opacity: 0,
-            duration: 0.8,
-            delay: index * 0.1,
-            ease: "power3.out",
+    }, 0);
 
-            scrollTrigger: {
-              trigger: card,
-              start: "top 88%",
-              toggleActions:
-                "play none none reverse",
-            },
-          });
-        });
-
-      /* =========================================
-         FORM
-      ========================================= */
-
-      gsap.from(".contact-form-wrapper", {
-        x: 80,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-
-        scrollTrigger: {
-          trigger: ".contact-form-wrapper",
-          start: "top 80%",
-          toggleActions:
-            "play none none reverse",
-        },
-      });
-
-      gsap.from(".contact-form-field", {
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "power3.out",
-
-        scrollTrigger: {
-          trigger: ".contact-form-wrapper",
-          start: "top 75%",
-          toggleActions:
-            "play none none reverse",
-        },
-      });
-
-      /* =========================================
-         AVAILABILITY
-      ========================================= */
-
-      gsap.from(".availability-content", {
-        y: 70,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-
-        scrollTrigger: {
-          trigger: ".availability-section",
-          start: "top 80%",
-          toggleActions:
-            "play none none reverse",
-        },
-      });
-
-      /* =========================================
-         CLOSING
-      ========================================= */
-
-      gsap.from(".contact-closing-content", {
-        y: 70,
-        opacity: 0,
-        duration: 1.1,
-        ease: "power3.out",
-
-        scrollTrigger: {
-          trigger: ".contact-closing",
-          start: "top 80%",
-          toggleActions:
-            "play none none reverse",
-        },
-      });
-
-      ScrollTrigger.refresh();
-
-    }, pageRef);
+    /*
+    =====================================================
+    CLEANUP
+    =====================================================
+    */
 
     return () => {
-      ctx.revert();
+      clearTimeout(initTimer);
+      clearTimeout(refreshTimer);
+
+      if (scrollHandler) {
+        window.removeEventListener(
+          "scroll",
+          scrollHandler
+        );
+      }
+
+      if (firstLadyTimer) {
+        firstLadyTimer.kill();
+      }
+
+      if (randomLadyTimer) {
+        randomLadyTimer.kill();
+      }
+
+      ladyAnimations.forEach(
+        (animation) => {
+          animation.kill();
+        }
+      );
+
+      if (pageRef.current) {
+        pageRef.current
+          .querySelectorAll(
+            ".contact-ukiyo-lady"
+          )
+          .forEach((lady) => {
+            gsap.killTweensOf(lady);
+
+            lady.classList.remove(
+              "lady-active"
+            );
+          });
+      }
+
+      if (ctx) {
+        ctx.revert();
+      }
     };
+
   }, []);
 
   return (
@@ -208,18 +938,94 @@ function Contact() {
       ref={pageRef}
       className="contact-page"
     >
+      <ButterflyEffect/>
 
-      {/* =========================================
+      {/* =====================================================
+          RANDOM UKIYO-E CHARACTERS
+
+          IMPORTANT:
+          Moved OUTSIDE contact-hero.
+
+          They are now a viewport overlay and can appear
+          regardless of which Contact section is visible.
+      ===================================================== */}
+
+      <div
+        className="contact-ukiyo-ladies"
+        aria-hidden="true"
+      >
+
+        <img
+          className="
+            contact-ukiyo-lady
+            contact-ukiyo-lady-01
+          "
+          src="/images/lady-1.webp"
+          alt=""
+          draggable="false"
+        />
+
+        <img
+          className="
+            contact-ukiyo-lady
+            contact-ukiyo-lady-02
+          "
+          src="/images/lady-2.webp"
+          alt=""
+          draggable="false"
+        />
+
+        <img
+          className="
+            contact-ukiyo-lady
+            contact-ukiyo-lady-03
+          "
+          src="/images/lady-3.webp"
+          alt=""
+          draggable="false"
+        />
+
+        <img
+          className="
+            contact-ukiyo-lady
+            contact-ukiyo-lady-4
+          "
+          src="/images/lady-4.webp"
+          alt=""
+          draggable="false"
+        />
+
+        <img
+          className="
+            contact-ukiyo-lady
+            contact-ukiyo-lady-5
+          "
+          src="/images/lady-5.webp"
+          alt=""
+          draggable="false"
+        />
+
+      </div>
+
+
+      {/* =====================================================
           HERO
-      ========================================= */}
+      ===================================================== */}
 
       <section className="contact-hero">
+
+        {/* =================================================
+            ART FRAME
+        ================================================= */}
 
         <div className="contact-art-frame">
 
           <div className="contact-art-label">
             繋
-            <span>CONNECTION</span>
+
+            <span>
+              CONNECTION
+            </span>
           </div>
 
           <img
@@ -231,11 +1037,18 @@ function Contact() {
 
           <div className="contact-art-caption">
             縁
-            <span>THE CONNECTION</span>
+
+            <span>
+              THE CONNECTION
+            </span>
           </div>
 
         </div>
 
+
+        {/* =================================================
+            HERO CONTENT
+        ================================================= */}
 
         <div className="contact-hero-content">
 
@@ -245,7 +1058,10 @@ function Contact() {
 
           <h1 className="contact-title">
             Contact
-            <span>Me</span>
+
+            <span>
+              Me
+            </span>
           </h1>
 
           <div className="contact-kanji">
@@ -264,9 +1080,9 @@ function Contact() {
       </section>
 
 
-      {/* =========================================
+      {/* =====================================================
           CONTACT AREA
-      ========================================= */}
+      ===================================================== */}
 
       <section className="contact-main">
 
@@ -291,17 +1107,16 @@ function Contact() {
 
         <div className="contact-layout">
 
-          {/* =====================================
+          {/* =================================================
               CONTACT INFORMATION
-          ===================================== */}
+          ================================================= */}
 
           <div className="contact-information">
-
 
             {/* EMAIL */}
 
             <a
-              href="mailto:hello@example.com"
+              href="mailto:tgautam8126@gmail.com"
               className="contact-info-card"
             >
 
@@ -316,46 +1131,11 @@ function Contact() {
                 </span>
 
                 <h3>
-                  hello@example.com
+                  tgautam8126@gmail.com
                 </h3>
 
                 <p>
                   Send me an email anytime.
-                </p>
-
-              </div>
-
-              <ArrowUpRight
-                className="contact-info-arrow"
-                size={22}
-              />
-
-            </a>
-
-
-            {/* PHONE */}
-
-            <a
-              href="tel:+910000000000"
-              className="contact-info-card"
-            >
-
-              <div className="contact-info-icon">
-                <Phone size={25} />
-              </div>
-
-              <div className="contact-info-content">
-
-                <span>
-                  PHONE
-                </span>
-
-                <h3>
-                  +91 00000 00000
-                </h3>
-
-                <p>
-                  Available for professional discussions.
                 </p>
 
               </div>
@@ -424,9 +1204,9 @@ function Contact() {
           </div>
 
 
-          {/* =====================================
+          {/* =================================================
               FORM
-          ===================================== */}
+          ================================================= */}
 
           <div className="contact-form-wrapper">
 
@@ -529,11 +1309,9 @@ function Contact() {
                 type="submit"
                 className="contact-submit"
               >
-
                 SEND MESSAGE
 
                 <Send size={18} />
-
               </button>
 
             </form>
@@ -545,9 +1323,9 @@ function Contact() {
       </section>
 
 
-      {/* =========================================
+      {/* =====================================================
           AVAILABILITY
-      ========================================= */}
+      ===================================================== */}
 
       <section className="availability-section">
 
@@ -588,9 +1366,9 @@ function Contact() {
       </section>
 
 
-      {/* =========================================
+      {/* =====================================================
           CLOSING
-      ========================================= */}
+      ===================================================== */}
 
       <section className="contact-closing">
 
@@ -607,13 +1385,12 @@ function Contact() {
           </h2>
 
           <a
-            href="mailto:hello@example.com"
+            href="mailto:tgautam8126@gmail.com"
             className="contact-closing-button"
           >
             SAY HELLO
 
             <ArrowUpRight size={18} />
-
           </a>
 
         </div>

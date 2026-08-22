@@ -76,7 +76,7 @@
 
 @media (max-width:980px) {
   .projects-hero-art{
-     content: url("/images/project-banner2.png") !important;
+     content: url("/images/project-banner2.webp") !important;
   }
 }
 
