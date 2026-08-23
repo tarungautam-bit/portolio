@@ -12,8 +12,6 @@ import {
 } from "lucide-react";
 
 
-
-
 const AudioContext = createContext();
 
 
@@ -33,9 +31,41 @@ export const AudioProvider = ({ children }) => {
     }, []);
 
 
-    const toggleMute = () => {
+    const toggleMute = async () => {
 
-        setMuted(prev => !prev);
+        const audio = audioRef.current;
+
+        if (!audio) return;
+
+
+        if (muted) {
+
+            setMuted(false);
+
+            try {
+
+                audio.muted = false;
+
+                audio.volume = 0.5;
+
+                await audio.play();
+
+            } catch (error) {
+
+                console.log(
+                    "Audio playback failed:",
+                    error
+                );
+
+            }
+
+        } else {
+
+            audio.muted = true;
+
+            setMuted(true);
+
+        }
 
     };
 
