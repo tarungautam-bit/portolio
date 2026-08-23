@@ -19,7 +19,7 @@ const AudioContext = createContext();
 
 export const AudioProvider = ({ children }) => {
 
-    const [muted, setMuted] = useState(false);
+    const [muted, setMuted] = useState(true);
 
     const audioRef = useRef(null);
 

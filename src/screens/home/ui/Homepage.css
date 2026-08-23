@@ -367,9 +367,9 @@
 
   height: 100%;
 
-  display: block;
 
-  object-fit: cover;
+  object-fit: cover !important;
+
 }
 
 
@@ -385,8 +385,7 @@
 
 
 .gallery-image-small {
-  left: 0;
-
+  left: 100px;
   bottom: 70px;
 
   width: 45%;
@@ -396,7 +395,7 @@
 
 
 .gallery-image-card {
-  right: 12%;
+  right: 5% !important;
 
   bottom: 0;
 
@@ -996,10 +995,10 @@
   }
 
 
-  .gallery-image-card img {
+  /* .gallery-image-card img {
     height: 150px;
   }
-
+ */
 
   /* PHILOSOPHY */
 
