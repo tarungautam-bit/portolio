@@ -14,6 +14,217 @@ const VillageGate = () => {
     const [muted, setMuted] = useState(false);
 
 
+    /*
+    ============================================================
+    FIRST LOAD ANIMATION — ONLY ADDITION
+    ============================================================
+    */
+
+    useEffect(() => {
+
+        const intro = gsap.timeline();
+
+        /*
+        Initial positions
+        */
+
+        gsap.set(".header-div", {
+            opacity: 0,
+            y: -50
+        });
+
+        gsap.set(".image-section", {
+            opacity: 0,
+            y: 70,
+            scale: 0.9,
+            filter: "blur(8px)"
+        });
+
+        gsap.set(".gate-action", {
+            opacity: 0,
+            y: 40
+        });
+
+        gsap.set(".gate-decoration--top-right", {
+            opacity: 0,
+            x: 70,
+            y: -50
+        });
+
+        gsap.set(".gate-decoration--top-left", {
+            opacity: 0,
+            x: -70,
+            y: -50
+        });
+
+        gsap.set(".gate-decoration--bottom-right", {
+            opacity: 0,
+            x: 70,
+            y: 50
+        });
+
+        gsap.set(".gate-decoration--bottom-left", {
+            opacity: 0,
+            x: -70,
+            y: 50
+        });
+
+
+        /*
+        ========================================================
+        HEADER
+        ========================================================
+        */
+
+        intro.to(".header-div", {
+
+            opacity: 1,
+            y: 0,
+
+            duration: 0.9,
+
+            ease: "power3.out"
+
+        });
+
+
+        /*
+        ========================================================
+        IMAGE
+        ========================================================
+        */
+
+        intro.to(".image-section", {
+
+            opacity: 1,
+
+            y: 0,
+
+            scale: 1,
+
+            filter: "blur(0px)",
+
+            duration: 1.2,
+
+            ease: "power4.out"
+
+        }, "-=0.45");
+
+
+        /*
+        ========================================================
+        TOP RIGHT
+        ========================================================
+        */
+
+        intro.to(".gate-decoration--top-right", {
+
+            opacity: 1,
+
+            x: 0,
+            y: 0,
+
+            duration: 0.8,
+
+            ease: "back.out(1.5)"
+
+        }, "-=0.8");
+
+
+        /*
+        ========================================================
+        TOP LEFT
+        ========================================================
+        */
+
+        intro.to(".gate-decoration--top-left", {
+
+            opacity: 1,
+
+            x: 0,
+            y: 0,
+
+            duration: 0.8,
+
+            ease: "back.out(1.5)"
+
+        }, "-=0.7");
+
+
+        /*
+        ========================================================
+        BOTTOM RIGHT
+        ========================================================
+        */
+
+        intro.to(".gate-decoration--bottom-right", {
+
+            opacity: 1,
+
+            x: 0,
+            y: 0,
+
+            duration: 0.8,
+
+            ease: "back.out(1.5)"
+
+        }, "-=0.7");
+
+
+        /*
+        ========================================================
+        BOTTOM LEFT
+        ========================================================
+        */
+
+        intro.to(".gate-decoration--bottom-left", {
+
+            opacity: 1,
+
+            x: 0,
+            y: 0,
+
+            duration: 0.8,
+
+            ease: "back.out(1.5)"
+
+        }, "-=0.7");
+
+
+        /*
+        ========================================================
+        ENTER BUTTON
+        ========================================================
+        */
+
+        intro.to(".gate-action", {
+
+            opacity: 1,
+
+            y: 0,
+
+            duration: 0.8,
+
+            ease: "back.out(1.4)"
+
+        }, "-=0.5");
+
+
+        return () => {
+
+            intro.kill();
+
+        };
+
+    }, []);
+
+
+    /*
+    ============================================================
+    YOUR EXISTING ANIMATION — UNCHANGED
+    ============================================================
+    */
+
     useEffect(() => {
 
         gsap.to(".gate-decoration--top-right", {
