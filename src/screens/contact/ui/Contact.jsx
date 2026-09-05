@@ -13,12 +13,23 @@ import {
 
 import "./Contact.css";
 import ButterflyEffect from "../../../shared/components/ButterflYEffect";
+import useContact from "../hook/useContact";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function Contact() {
 
     const pageRef = useRef(null);
+
+    const { register,
+    handleSubmit,
+    errors,
+    reset,
+    submitContactForm,
+    apiError,
+    apiErrors,
+    isSubmitting,
+    successMessage} = useContact()
 
     useEffect(() => {
 
@@ -1070,84 +1081,130 @@ function Contact() {
                         </div>
 
 
-                        <form>
+                       <form onSubmit={handleSubmit(submitContactForm)}>
+
+                            {successMessage&&<p>{successMessage}</p>}
+
+                            {/* BACKEND / API ERROR */}
+                            {apiError && (
+                                <div className="contact-form-error">
+                                {apiError}
+
+                                {Object.keys(apiErrors).length > 0 && (
+                                    <ul>
+                                    {Object.entries(apiErrors).map(([field, messages]) => (
+                                        <li key={field}>
+                                        {messages?.[0]}
+                                        </li>
+                                    ))}
+                                    </ul>
+                                )}
+                                </div>
+                            )}
 
                             <div className="contact-form-field">
-
                                 <label htmlFor="name">
-                                    YOUR NAME
+                                YOUR NAME
                                 </label>
 
                                 <input
-                                    id="name"
-                                    name="name"
-                                    type="text"
-                                    placeholder="Your name"
+                                id="name"
+                                type="text"
+                                placeholder="Your name"
+                                {...register("name", {
+                                    required: "Name is required",
+                                })}
                                 />
 
+                                {errors.name && (
+                                <span className="field-error">
+                                    {errors.name.message}
+                                </span>
+                                )}
                             </div>
 
 
                             <div className="contact-form-field">
-
                                 <label htmlFor="email">
-                                    EMAIL ADDRESS
+                                EMAIL ADDRESS
                                 </label>
 
                                 <input
-                                    id="email"
-                                    name="email"
-                                    type="email"
-                                    placeholder="your@email.com"
+                                id="email"
+                                type="email"
+                                placeholder="your@email.com"
+                                {...register("email", {
+                                    required: "Email is required",
+                                    pattern: {
+                                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                    message: "Please enter a valid email address",
+                                    },
+                                })}
                                 />
 
+                                {errors.email && (
+                                <span className="field-error">
+                                    {errors.email.message}
+                                </span>
+                                )}
                             </div>
 
 
                             <div className="contact-form-field">
-
                                 <label htmlFor="subject">
-                                    SUBJECT
+                                SUBJECT
                                 </label>
 
                                 <input
-                                    id="subject"
-                                    name="subject"
-                                    type="text"
-                                    placeholder="What would you like to discuss?"
+                                id="subject"
+                                type="text"
+                                placeholder="What would you like to discuss?"
+                                {...register("subject", {
+                                    required: "Subject is required",
+                                })}
                                 />
 
+                                {errors.subject && (
+                                <span className="field-error">
+                                    {errors.subject.message}
+                                </span>
+                                )}
                             </div>
 
 
                             <div className="contact-form-field">
-
                                 <label htmlFor="message">
-                                    MESSAGE
+                                MESSAGE
                                 </label>
 
                                 <textarea
-                                    id="message"
-                                    name="message"
-                                    rows="6"
-                                    placeholder="Tell me about your project..."
+                                id="message"
+                                rows="6"
+                                placeholder="Tell me about your project..."
+                                {...register("message", {
+                                    required: "Message is required",
+                                })}
                                 />
 
+                                {errors.message && (
+                                <span className="field-error">
+                                    {errors.message.message}
+                                </span>
+                                )}
                             </div>
 
 
                             <button
                                 type="submit"
                                 className="contact-submit"
+                                disabled={isSubmitting}
                             >
+                                {isSubmitting ? "SENDING..." : "SEND MESSAGE"}
 
-                                SEND MESSAGE
-
-                                <Send size={18} />
-
+                                {!isSubmitting && <Send size={18} />}
                             </button>
 
-                        </form>
+                    </form>
 
                     </div>
 

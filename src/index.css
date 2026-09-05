@@ -1205,7 +1205,7 @@ filter:
   background:
     linear-gradient(
       180deg,
-      rgba(80, 170, 210, 0.08),
+      rgba(0, 172, 246, 0.08),
       rgba(30, 130, 180, 0.12)
     );
 }
@@ -1385,4 +1385,9 @@ filter:
         height: 44px;
     }
 
+}
+
+.tech-tag{
+    font-size: 13px!important;
+    color:var(--color-ink)!important;
 }

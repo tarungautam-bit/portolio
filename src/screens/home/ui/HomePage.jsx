@@ -5,10 +5,21 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Banner from "../../../shared/components/Banner";
 import "./Homepage.css";
 import SunriseEffect from "../../../shared/components/SunriseEffect";
+import { useHomeApi } from "../hook/homeHook";
+import SectionLoader from "../../../shared/components/SectionLoader";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
 function Homepage() {
+
+
+  let {homeData,projectData,isPending,isError}=useHomeApi();
+
+  console.log(homeData,projectData);
+
+
+
   useEffect(() => {
     /* =====================================================
        GSAP CONTEXT
@@ -538,20 +549,30 @@ function Homepage() {
           draggable="false"
         />
 
-        <div className="hero-eyebrow">
-          FullStack Developer (MERN & PHP)
-        </div>
 
-        <h1 className="hero-title">
-          Tarun Gautam
-        </h1>
+        {
+          isPending?(<SectionLoader/>):(
+            <>
+            <div className="hero-eyebrow">
+             {homeData.hero_subtitle}
+            </div>
+             <h1 className="hero-title">
+              {homeData.hero_title}
+            </h1>
+             <p className="hero-description">
+              Crafting digital experiences with the
+              patience and structural elegance of Edo
+              period masters. A portfolio shaped by the
+              timeless aesthetics of Ukiyo-e (浮世絵).
+            </p>
+            </>
+          )
+        }
+        
 
-        <p className="hero-description">
-          Crafting digital experiences with the
-          patience and structural elegance of Edo
-          period masters. A portfolio shaped by the
-          timeless aesthetics of Ukiyo-e (浮世絵).
-        </p>
+       
+
+       
 
         <Banner />
 
@@ -709,34 +730,30 @@ function Homepage() {
             </h2>
 
             <div className="section-line"></div>
+              {homeData?.hero_description ? (
+                  <p>{homeData.hero_description}</p>
+              ) : (
+                  <p>
+                      From backend APIs and database-driven
+                      applications to modern React
+                      interfaces, I enjoy working across
+                      the full development stack. My
+                      experience has taught me to value
+                      strong fundamentals, thoughtful
+                      architecture, and simple solutions
+                      that perform well in the real world.
+                  </p>
+              )}
+            
 
-            <p>
-              My journey as a FullStack Developer
-              has been shaped by building practical
-              web applications across PHP and
-              JavaScript ecosystems. I work with
-              Laravel, PHP, JavaScript, React,
-              Node.js, MySQL, and MongoDB, focusing
-              on building clean, reliable, and
-              maintainable digital experiences.
-            </p>
-
-            <p>
-              From backend APIs and database-driven
-              applications to modern React
-              interfaces, I enjoy working across
-              the full development stack. My
-              experience has taught me to value
-              strong fundamentals, thoughtful
-              architecture, and simple solutions
-              that perform well in the real world.
-            </p>
+           
 
             <a
-              href="#contact"
+              href={homeData?.resume_link}
               className="outline-button"
+              target="_blank"
             >
-              GET IN TOUCH
+              See Resume
             </a>
 
           </div>
@@ -812,168 +829,155 @@ function Homepage() {
 
         <section className="archive-section">
 
-          <div className="archive-header">
+            <div className="archive-header">
 
-            <div>
+                <div>
+                    <span className="section-eyebrow">
+                        SELECTED WORK
+                    </span>
 
-              <span className="section-eyebrow">
-                SELECTED WORK
-              </span>
+                    <h2>
+                        Selected Archive
+                    </h2>
+                </div>
 
-              <h2>
-                Selected Archive
-              </h2>
+                <a
+                    href="/projects"
+                    className="view-all"
+                >
+                    VIEW ALL →
+                </a>
 
             </div>
 
-            <a
-              href="/projects"
-              className="view-all"
-            >
-              VIEW ALL →
-            </a>
 
-          </div>
+            <div className="archive-grid">
 
+                {projectData
+                    ?.filter((project) => project.featured === true)
+                    .sort((a, b) => a.sort_order - b.sort_order)
+                    .slice(0, 4)
+                    .map((project, index) => (
 
-          <div className="archive-grid">
+                        <article
+                            key={project.id}
+                            className={`project ${
+                                index === 0
+                                    ? "project-large"
+                                    : index === 1
+                                    ? "project-offset"
+                                    : ""
+                            }`}
+                        >
 
-            {/* PROJECT 01 */}
+                            {/* PROJECT IMAGE */}
 
-            <article className="project project-large">
+                            <div className="project-image">
 
-              <div className="project-image">
+                                {project.live_link ? (
 
-                <img
-                  src="/images/project-01.webp"
-                  alt="Dragon project"
-                  loading="lazy"
-                  decoding="async"
-                />
+                                    <a
+                                        href={project.live_link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label={`View ${project.title} live project`}
+                                    >
+                                        <img
+                                            src={project.image}
+                                            alt={project.title}
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
+                                    </a>
 
-                <span className="project-number">
-                  01
-                </span>
+                                ) : (
 
-              </div>
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
 
-              <div className="project-info">
+                                )}
 
-                <h3>
-                  龍の咆哮
-                </h3>
+                                <span className="project-number">
+                                    {String(index + 1).padStart(2, "0")}
+                                </span>
 
-                <p>
-                  Dragon's Roar
-                </p>
-
-                <span>
-                  BRAND IDENTITY · DIGITAL
-                </span>
-
-              </div>
-
-            </article>
-
-
-            {/* PROJECT 02 */}
-
-            <article className="project project-offset">
-
-              <div className="project-image">
-
-                <img
-                  src="/images/project-02.webp"
-                  alt="Japanese inspired project"
-                  loading="lazy"
-                  decoding="async"
-                />
-
-                <span className="project-number">
-                  02
-                </span>
-
-              </div>
-
-              <div className="project-info">
-
-                <h3>
-                  Floating World
-                </h3>
-
-                <p>
-                  Digital Experience
-                </p>
-
-                <span>
-                  UI / UX · DEVELOPMENT
-                </span>
-
-              </div>
-
-            </article>
+                            </div>
 
 
-            {/* PROJECT 03 */}
+                            {/* PROJECT INFORMATION */}
 
-            <article className="project">
+                            <div className="project-info">
 
-              <div className="project-image">
-
-                <img
-                  src="/images/project-03.webp"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-
-              </div>
-
-              <div className="project-info">
-
-                <h3>
-                  Chashitsu Store
-                </h3>
-
-                <span>
-                  E-COMMERCE
-                </span>
-
-              </div>
-
-            </article>
+                                <h3>
+                                    {project.title}
+                                </h3>
 
 
-            {/* PROJECT 04 */}
+                                {/* DESCRIPTION */}
 
-            <article className="project">
+                                <p>
+                                    {project.description
+                                        ? project.description.length > 40
+                                            ? `${project.description.substring(0, 40)}...`
+                                            : project.description
+                                        : ""}
+                                </p>
 
-              <div className="project-image">
 
-                <img
-                  src="/images/project-04.webp"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
+                                {/* TECH STACK */}
 
-              </div>
+                                {project.tech_stack?.length > 0 && (
 
-              <div className="project-info">
+                                    <div className="project-tech-stack">
 
-                <h3>
-                  Origami UI Kit
-                </h3>
+                                        {project.tech_stack.map(
+                                            (tech, techIndex) => (
 
-                <span>
-                  DESIGN SYSTEM
-                </span>
+                                                <span
+                                                    key={`${project.id}-${techIndex}`}
+                                                    className="tech-tag"
+                                                >
+                                                    {tech+" "}
+                                                </span>
 
-              </div>
+                                            )
+                                        )}
 
-            </article>
+                                    </div>
 
-          </div>
+                                )}
+
+
+                                {/* GITHUB LINK */}
+
+                                {project.github_link && (
+
+                                    <div className="project-links">
+
+                                        <a
+                                            href={project.github_link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label={`View ${project.title} on GitHub`}
+                                        >
+                                            GITHUB ↗
+                                        </a>
+
+                                    </div>
+
+                                )}
+
+                            </div>
+
+                        </article>
+
+                    ))}
+
+            </div>
 
         </section>
 
