@@ -554,10 +554,10 @@ function Homepage() {
           isPending?(<SectionLoader/>):(
             <>
             <div className="hero-eyebrow">
-             {homeData.hero_subtitle}
+             {homeData?.hero_subtitle}
             </div>
              <h1 className="hero-title">
-              {homeData.hero_title}
+              {homeData?.hero_title}
             </h1>
              <p className="hero-description">
               Crafting digital experiences with the
@@ -731,7 +731,7 @@ function Homepage() {
 
             <div className="section-line"></div>
               {homeData?.hero_description ? (
-                  <p>{homeData.hero_description}</p>
+                  <p>{homeData?.hero_description}</p>
               ) : (
                   <p>
                       From backend APIs and database-driven
